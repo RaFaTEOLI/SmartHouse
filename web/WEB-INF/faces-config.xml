@@ -10,39 +10,92 @@
         </resource-bundle>
     </application>
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
+        <from-view-id>/pessoa/listaPessoas.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>incluir</from-outcome>
-            <to-view-id>/incluir.xhtml</to-view-id>
+            <to-view-id>/pessoa/incluir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>alterar</from-outcome>
+            <to-view-id>/pessoa/alterar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>exc</from-outcome>
+            <to-view-id>/pessoa/sucesso.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/incluir.xhtml</from-view-id>
+        <from-view-id>/pessoa/incluir.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>incluir</from-outcome>
-            <to-view-id>/sucesso.xhtml</to-view-id>
+            <from-outcome>inc</from-outcome>
+            <to-view-id>/pessoa/sucesso.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-                <from-outcome>falha</from-outcome>
-                <to-view-id>/falha.xhtml</to-view-id>
+            <from-outcome>falha</from-outcome>
+            <to-view-id>/pessoa/falha.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pessoa/alterar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>alt</from-outcome>
+            <to-view-id>/pessoa/sucesso.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>falha</from-outcome>
+            <to-view-id>/pessoa/falha.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/casa/listaCasas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>alterar</from-outcome>
+            <to-view-id>/casa/alterar.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>incluir</from-outcome>
+            <to-view-id>/casa/incluir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>exc</from-outcome>
+            <to-view-id>/casa/sucesso.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>falha</from-outcome>
+            <to-view-id>/casa/falha.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/casa/alterar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>alt</from-outcome>
+            <to-view-id>/casa/sucesso.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>falha</from-outcome>
+            <to-view-id>/casa/falha.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/casa/incluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>inc</from-outcome>
+            <to-view-id>/casa/sucesso.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>falha</from-outcome>
+            <to-view-id>/casa/falha.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>excluir</from-outcome>
-            <to-view-id>/excluir.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/excluir.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>excluir</from-outcome>
-            <to-view-id>/sucesso.xhtml</to-view-id>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-                <from-outcome>falha</from-outcome>
-                <to-view-id>/falha.xhtml</to-view-id>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

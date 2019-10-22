@@ -21,7 +21,7 @@ public class CtrManterPessoa {
     public String salvar() {
         try {
             daoPessoa.gravar(pessoa);
-            return "incluir";
+            return "inc";
             
         } catch (HibernateException e) {
             return "falha";
@@ -39,7 +39,7 @@ public class CtrManterPessoa {
     public String alterar() {
         try {
             daoPessoa.alterar(pessoa);
-            return "alterar";
+            return "alt";
         } catch (HibernateException e) {
             return "falha";
         }
@@ -48,7 +48,7 @@ public class CtrManterPessoa {
     public String excluir() {
         try {
             daoPessoa.excluir(pessoa);
-            return "excluir";
+            return "exc";
         } catch (HibernateException e) {
             return "falha";
         }

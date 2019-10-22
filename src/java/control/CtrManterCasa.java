@@ -2,52 +2,65 @@ package control;
 
 import dao.DaoCasa;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import model.Casa;
 import org.hibernate.HibernateException;
 
+@ManagedBean (name="ctrCasa")
+@SessionScoped
 public class CtrManterCasa {
-    DaoCasa acessoHibernatecasa;
+    DaoCasa daoCasa;
+    private Casa casa;
     
     public CtrManterCasa() {
-        acessoHibernatecasa = new DaoCasa();
+        daoCasa = new DaoCasa();
     }
     
-    public int gravarCasa(Casa casa) {
+    public String salvar() {
         try {
-            acessoHibernatecasa.gravar(casa);
-            return 1;
+            daoCasa.gravar(casa);
+            return "inc";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return 2;
+            return "falha";
         }
     }
     
-    public List carregarCasas() {
+    public List getCasas() {
         try {
-            return acessoHibernatecasa.carregarTudoOrdenado(Casa.class,"nome");
+            return daoCasa.carregarTudoOrdenado(Casa.class,"nome");
         } catch (HibernateException e) {
                 return null;
         }
     }
     
-    public boolean excluirCasa(Casa casa) {
+    public String excluir() {
         try {
-            acessoHibernatecasa.excluir(casa);
-            return true;
+            daoCasa.excluir(casa);
+            return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return false;
+            return "falha";
         }
     }
     
-    public boolean alterarCasa(Casa casa) {
+    public String alterar() {
         try {
-            acessoHibernatecasa.alterar(casa);
-            return true;
+            daoCasa.alterar(casa);
+            return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return false;
+            return "falha";
         }
+    }
+    
+    public Casa getCasa() {
+        return casa;
+    }
+
+    public void setCasa(Casa casa) {
+        this.casa = casa;
     }
     
 }

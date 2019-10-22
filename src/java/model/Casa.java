@@ -1,6 +1,8 @@
 package model;
 
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@ManagedBean (name="casa")
+@SessionScoped
 @Entity
 public class Casa implements Serializable {
     @Id
@@ -25,20 +29,22 @@ public class Casa implements Serializable {
     private String cidade;
     private String cep;
     
-    
+    public Casa() {
+        
+    }
 
     /**
      * @return the casaId
      */
-    public Integer getCasaId() {
+    public Integer getId() {
         return casaid;
     }
 
     /**
      * @param casaId the casaId to set
      */
-    public void setCasaId(Integer casaId) {
-        this.casaid = casaId;
+    public void setId(Integer id) {
+        this.casaid = id;
     }
 
     /**
@@ -119,7 +125,7 @@ public class Casa implements Serializable {
     @Override
     public boolean equals(Object obj) {
         boolean result = false;
-            if (this.getCasaId().equals(((Casa)obj).getCasaId())) {
+            if (this.getId().equals(((Casa)obj).getId())) {
                 result = true;
             }
         return result;
