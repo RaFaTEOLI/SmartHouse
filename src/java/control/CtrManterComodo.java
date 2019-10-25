@@ -1,53 +1,59 @@
 package control;
 
 import dao.DaoComodo;
+import java.util.ArrayList;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import model.Comodo;
 import org.hibernate.HibernateException;
 
+@ManagedBean (name="ctrComodo")
+@SessionScoped
 public class CtrManterComodo {
     DaoComodo acessoHibernateQuarto;
+    private Comodo comodo;
     
     public CtrManterComodo() {
         acessoHibernateQuarto = new DaoComodo();
     }
     
-    public int gravarComodo(Comodo quarto) {
+    public String salvar() {
         try {
-            acessoHibernateQuarto.gravar(quarto);
-            return 1;
+            acessoHibernateQuarto.gravar(comodo);
+            return "inc";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return 2;
+            return "falha";
         }
     }
     
-    public List carregarComodos() {
+    public List getComodos() {
         try {
             return acessoHibernateQuarto.carregarTudoOrdenado(Comodo.class,
 "nome");
         } catch (HibernateException e) {
-                return null;
+            return new ArrayList();
         }
     }
     
-    public boolean excluirComodo(Comodo quarto) {
+    public String excluir() {
         try {
-            acessoHibernateQuarto.excluir(quarto);
-            return true;
+            acessoHibernateQuarto.excluir(comodo);
+            return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return false;
+            return "falha";
         }
     }
     
-    public boolean alterarComodo(Comodo quarto) {
+    public String alterar() {
         try {
-            acessoHibernateQuarto.alterar(quarto);
-            return true;
+            acessoHibernateQuarto.alterar(comodo);
+            return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return false;
+            return "falha";
         }
     }
     

@@ -1,52 +1,58 @@
 package control;
 
 import dao.DaoAparelho;
+import java.util.ArrayList;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import model.Aparelho;
 import org.hibernate.HibernateException;
 
+@ManagedBean (name="ctrAparelho")
+@SessionScoped
 public class CtrManterAparelho {
     DaoAparelho acessoHibernateAparelho;
+    private Aparelho aparelho;
     
     public CtrManterAparelho() {
         acessoHibernateAparelho = new DaoAparelho();
     }
     
-    public int gravarAparelho(Aparelho aparelho) {
+    public String salvar() {
         try {
             acessoHibernateAparelho.gravar(aparelho);
-            return 1;
+            return "inc";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return 2;
+            return "falha";
         }
     }
     
-    public List carregarAparelho() {
+    public List getAparelhos() {
         try {
             return acessoHibernateAparelho.carregarTudoOrdenado(Aparelho.class,"aparelhoId");
         } catch (HibernateException e) {
-                return null;
+                return new ArrayList();
         }
     }
     
-    public boolean excluirAparelho(Aparelho aparelho) {
+    public String excluir() {
         try {
             acessoHibernateAparelho.excluir(aparelho);
-            return true;
+            return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return false;
+            return "falha";
         }
     }
     
-    public boolean alterarAparelho(Aparelho aparelho) {
+    public String alterar() {
         try {
             acessoHibernateAparelho.alterar(aparelho);
-            return true;
+            return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();
-            return false;
+            return "falha";
         }
     }
     

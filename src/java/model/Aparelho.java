@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@ManagedBean (name="aparelho")
+@SessionScoped
 @Entity
 public class Aparelho implements Serializable {
    
@@ -24,6 +28,9 @@ public class Aparelho implements Serializable {
     
     private String nome;
     private String descricao;
+    
+    public Aparelho() {
+    }
     
     /**
      * @return the aparelhoId

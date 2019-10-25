@@ -3,6 +3,8 @@ package model;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
+@ManagedBean (name="morador")
+@SessionScoped
 @Entity
 public class Morador implements Serializable {
     @Id
@@ -31,6 +35,8 @@ public class Morador implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data_cadastro;
     
+    public Morador() {
+    }
     /**
      * @return the casaId
      */

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+     <f:view>
+
+        <h:head>
+            <h:outputStylesheet library="css" name="styles.css"/>
+             <title>
+                <h:outputText value="#{msgs.pageTitle}"/>
+             </title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <h:panelGrid columns="2" border="1" cellpadding="0" cellspacing="2">
+                    <h:outputText value="#{msgs.nomeCasa}"/>
+                    <h:inputText value="#{ctrCasa.casa.nome}"/>
+                    <h:outputText value="#{msgs.enderecoCasa}"/>
+                    <h:inputText value="#{ctrCasa.casa.endereco}"/>
+                    <h:outputText value="#{msgs.cidadeCasa}"/>
+                    <h:inputText value="#{ctrCasa.casa.cidade}">
+                        <!--<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>-->
+                    </h:inputText> 
+                    <h:outputText value="#{msgs.cepCasa}"/>
+                    <h:inputText value="#{ctrCasa.casa.cep}"/>
+                    <h:outputText value="#{msgs.dono}"/>
+                    <h:selectOneMenu id="pessoaCasa" value="#{ctrCasa.casa.pessoa}">
+                      <f:converter converterId="pessoaConverter" />
+                      <f:selectItems value="#{ctrPessoa.pessoas}" var="pessoaItem" itemLabel="#{pessoaItem.nome}" itemValue="#{pessoaItem}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid> 
+                <h:commandButton value="Alterar" action="#{ctrCasa.alterar}"/>
+            </h:form>
+      </h:body>
+   </f:view>
+</html>
