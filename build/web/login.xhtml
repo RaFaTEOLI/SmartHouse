@@ -15,13 +15,13 @@
          <h:form>
             <h:panelGrid columns="2"> 
                 <h:outputLabel value="Usuário:" />
-                <h:inputText value="#{pessoa.usuario}" size="20" />
+                <h:inputText value="#{login.usuario}" size="20" />
 
                 <h:outputLabel value="Senha:" />
-                <h:inputSecret value="#{pessoa.senha}" size="20" />
+                <h:inputSecret value="#{login.senha}" size="20" />
 
-                <h:commandButton value="Logar" action="#{ctrLogin.logar}">
-                    <f:setPropertyActionListener value="#{login}" target= "#{ctrLogin.logar}" />
+                <h:commandButton value="Logar" action="#{ctrLogin.send}">
+                    <f:setPropertyActionListener value="#{login}" target= "#{ctrLogin.login}" />
                 </h:commandButton>
             </h:panelGrid>   
         </h:form>

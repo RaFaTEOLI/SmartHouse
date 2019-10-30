@@ -1,16 +1,18 @@
 package control;
 
 import dao.DaoLogin;
-import java.util.ArrayList;
-import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Login;
-import org.hibernate.HibernateException;
 
 @ManagedBean (name="ctrLogin")
 @SessionScoped
 public class CtrManterLogin {
+    /*private DaoLogin daoLogin = new DaoLogin();
+    private Login login = new Login();*/
+    
     DaoLogin daoLogin;
     private Login login;
     
@@ -18,14 +20,26 @@ public class CtrManterLogin {
         daoLogin = new DaoLogin();
     }
     
-    public String logar() {
-        try {
-            daoLogin.login(login);
-            return "logar";
-            
-        } catch (HibernateException e) {
-            return "falha";
+    public String send() {
+        login = daoLogin.getLogin(login.getUsuario(), login.getSenha());
+        if (login == null) {
+            login = new Login();
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!",
+                    "Erro Login!"));
+            return null;
+        } else {
+            return "/main";
         }
+    }
+    
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
     }
     
 }
