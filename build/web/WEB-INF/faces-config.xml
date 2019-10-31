@@ -225,4 +225,15 @@
             <to-view-id>/comodo/falha.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>falha</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

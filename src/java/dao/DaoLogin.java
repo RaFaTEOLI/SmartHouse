@@ -1,29 +1,26 @@
 package dao;
 
-import java.util.Properties;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
-import model.Login;
+import javax.persistence.Query;
+import java.util.List;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class DaoLogin extends DaoGenerico {
     public DaoLogin() {
         
     }
     
-    private EntityManagerFactory factory = Persistence.createEntityManagerFactory("smart_house");
-    private EntityManager em = factory.createEntityManager();
-    
-    public Login getLogin(String nameUser, String password) {
-        try {
-            Login login = (Login) em.createQuery("SELECT u FROM Pessoa u WHERE u.usuario = :name AND u.senha = :password")
-                    .setParameter("name", nameUser)
-                    .setParameter("password", password).getSingleResult();
-                    return login;
-        } catch (NoResultException e) {
-            return null;
-        }
+    public Long validarLogin(String usuario, String senha) throws HibernateException {
+        List l;
+        Session session = hibernateConfiguracao.openSession();
+        Transaction transaction = session.beginTransaction();
+        
+        //Query query = (Query) session.createQuery("SELECT COUNT(*) FROM Pessoa WHERE usuario = '" + usuario + "' AND senha = '" + senha + "'");
+        org.hibernate.Query query = session.createQuery("SELECT COUNT(*) FROM Pessoa WHERE usuario = '" + usuario + "' AND senha = '" + senha + "'");
+        System.out.println("LOG STATUS | Selecionando se usuário existe no banco... ");
+        System.out.println("LOG QUERY | " + query);
+        System.out.println("LOG RETURN | " + (Long) query.uniqueResult());
+        return (Long) query.uniqueResult();
     }
-    
 }

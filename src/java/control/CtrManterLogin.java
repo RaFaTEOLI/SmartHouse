@@ -21,16 +21,16 @@ public class CtrManterLogin {
     }
     
     public String send() {
-        login = daoLogin.getLogin(login.getUsuario(), login.getSenha());
-        if (login == null) {
+        Long rLogin = daoLogin.validarLogin(login.getUsuario(), login.getSenha());
+        if (rLogin == 0) {
             login = new Login();
             FacesContext.getCurrentInstance().addMessage(
                     null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!",
                     "Erro Login!"));
-            return null;
+            return "falha";
         } else {
-            return "/main";
+            return "login";
         }
     }
     
