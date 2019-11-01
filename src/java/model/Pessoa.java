@@ -16,10 +16,10 @@ public class Pessoa implements Serializable {
     @Id
     @Column(unique=true)
     @GeneratedValue (strategy=GenerationType.IDENTITY)
-    protected Integer pessoaid;
+    private Integer pessoaid;
     
-    protected String nome;
-    protected String sobrenome;
+    private String nome;
+    private String sobrenome;
     protected String usuario;
     protected String senha;
     
