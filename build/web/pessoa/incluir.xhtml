@@ -4,7 +4,8 @@ xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:b="http://bootsfaces.net/ui">
+    xmlns:b="http://bootsfaces.net/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <f:view>
         <h:head>
             <link href="styles.css" rel="stylesheet" type="text/css"/>
@@ -13,7 +14,13 @@ xhtml1-strict.dtd">
             </title>
         </h:head>
         <h:body>
+           <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+           </div>
             <b:container fluid="true">
+            <b:panel title="Incluir Pessoa" look="primary">
             <b:form inline="true">
                 <h:panelGrid columns="1" cellpadding="5">
                   <br></br>
@@ -26,6 +33,7 @@ xhtml1-strict.dtd">
                     <f:setPropertyActionListener value="#{pessoa}" target= "#{ctrPessoa.pessoa}" />
                 </b:commandButton>
             </b:form>
+             </b:panel>
             </b:container>
         </h:body>
     </f:view>

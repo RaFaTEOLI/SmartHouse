@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 To change this template, choose Tools | Templates
 and open the template in the editor.
@@ -6,19 +6,30 @@ and open the template in the editor.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <h:outputStylesheet library="css" name="styles.css"/>
-        <h:outputText value="#{msgs.pageTitle}"/>
-        <br></br>
+        <title>
+            <h:outputText value="#{msgs.pageTitle}"/>
+        </title>
     </h:head>
     <h:body>
+       <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+       </div>
+       <b:container fluid="true">
+       <b:panel title="Mensagem" look="info">
        <f:view>
-           <h:outputText value="#{ctrCasa.casa.nome}  inserido(a) com sucesso!"/>
            <br></br>
-            <h:outputLink value="listaCasas.xhtml">
-                <f:verbatim>Inicial</f:verbatim>
-            </h:outputLink>
+           <b:alert severity="success"><strong>Muito bem!</strong> A Casa: <strong>#{ctrCasa.casa.nome}</strong> foi salva com sucesso.</b:alert>
+           <br></br>
+           <b:link style-class="some-class" look="success" value="Listar Casas" href="listaCasas.xhtml" />
         </f:view>
+        </b:panel>
+        </b:container>
     </h:body>
 </html>

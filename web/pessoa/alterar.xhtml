@@ -6,7 +6,9 @@ and open the template in the editor.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
     <f:view>
         <h:head>
             <h:outputStylesheet library="css" name="styles.css"/>
@@ -15,19 +17,26 @@ and open the template in the editor.
             </title>
         </h:head>
         <h:body>
-            <h:form>
-                <h:panelGrid columns="2" border="1" cellpadding="0" cellspacing="2">
-                    <h:outputText value="#{msgs.nameHeader}"/>
-                    <h:inputText value="#{ctrPessoa.pessoa.nome}"/>
-                    <h:outputText value="#{msgs.sobrenomeHeader}"/>
-                    <h:inputText value="#{ctrPessoa.pessoa.sobrenome}"/> 
-                    <h:outputText value="#{msgs.usuarioHeader}"/>
-                    <h:inputText value="#{ctrPessoa.pessoa.usuario}"/> 
-                    <h:outputText value="#{msgs.senhaHeader}"/>
-                    <h:inputText value="#{ctrPessoa.pessoa.senha}"/> 
+            <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+            </div>
+            <b:container fluid="true">
+            <b:panel title="Alterar Pessoa" look="primary">
+            <b:form inline="true">
+                <h:panelGrid columns="1" cellpadding="5">
+                    <br></br>
+                    <b:inputText label="#{msgs.nameHeader}" value="#{ctrPessoa.pessoa.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
+                    <b:inputText label="#{msgs.sobrenomeHeader}" value="#{ctrPessoa.pessoa.sobrenome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o sobrenome"/><br></br>
+                    <b:inputText label="#{msgs.usuarioHeader}" value="#{ctrPessoa.pessoa.usuario}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o usuário"/><br></br>
+                    <b:inputSecret label="#{msgs.senhaHeader}" value="#{ctrPessoa.pessoa.senha}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a senha"/><br></br>
                </h:panelGrid>
-               <h:commandButton value="Alterar" action="#{ctrPessoa.alterar}"/>
-             </h:form>
+               <b:commandButton look="info" value="Alterar" action="#{ctrPessoa.alterar}"/>
+               <b:commandButton look="primary" value="Voltar" action="listaPessoas.xhtml"/>
+             </b:form>
+             </b:panel>
+             </b:container>
         </h:body>
    </f:view>
 </html>

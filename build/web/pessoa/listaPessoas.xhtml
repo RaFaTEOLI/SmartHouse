@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <f:view>
         <h:head>
             <link href="styles.css" rel="stylesheet" type="text/css"/>
@@ -12,7 +13,13 @@
             </title>
         </h:head>
        <h:body>
+           <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+           </div>
            <b:container fluid="true">
+           <b:panel title="Listar Pessoas" look="primary">
            <h:form>
             <b:dataTable value="#{ctrPessoa.pessoas}" var="pessoa">
               <b:dataTableColumn value="#{pessoa.id}" order="asc"/>
@@ -32,8 +39,9 @@
               </b:dataTableColumn>
             </b:dataTable>
                <b:commandButton look="info" value="Incluir" action="incluir"/>
-               <b:commandButton look="primary" value="Voltar" onclick="../menu.xhtml"/>
+               <b:commandButton look="primary" value="Voltar" action="inicial"/>
           </h:form>
+          </b:panel>
           </b:container>
         </h:body>
     </f:view>

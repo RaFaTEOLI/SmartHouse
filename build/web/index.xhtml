@@ -1,33 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
- 
-    <f:view>
-     <h:head>
-         <h:outputStylesheet library="css" name="styles.css"/>
-         <title>
-            <h:outputText value="#{msgs.pageTitle}"/>
-         </title>
-      </h:head>
-     <h:body>
-         <h:form>
-             <h:commandLink action="pessoa" value="Pessoas"> </h:commandLink>
-             <br> </br>
-             <h:commandLink action="casa" value="Casas"> </h:commandLink>
-             <br> </br>
-             <h:commandLink action="morador" value="Moradores"> </h:commandLink>
-             <br> </br>
-             <h:commandLink action="aparelho" value="Aparelhos"> </h:commandLink>
-             <br> </br>
-             <h:commandLink action="comodo" value="Comodos"> </h:commandLink>
-             <br> </br>
-             <h:commandLink action="login" value="Login"> </h:commandLink>
-             <br> </br>
-             <h:commandLink action="menu" value="Menu"> </h:commandLink>
-             <br> </br>
-         </h:form>
-     </h:body>
-   </f:view>
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>#{msgs.pageTitle}</title>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+        </div>
+    </h:body>      
 </html>
