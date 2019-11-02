@@ -3,8 +3,10 @@ package control;
 import dao.DaoPessoa;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Pessoa;
 import org.hibernate.HibernateException;
 
@@ -19,13 +21,25 @@ public class CtrManterPessoa {
     }
     
     public String salvar() {
-        try {
-            daoPessoa.gravar(pessoa);
-            return "inc";
-            
-        } catch (HibernateException e) {
-            return "falha";
-        }
+        Long temUsuario = daoPessoa.validarUsuario(pessoa.getUsuario(), pessoa.getSenha());
+        System.out.println("LOG STATUS | temUsuario: " + temUsuario);
+        if (temUsuario != 0) {
+            System.out.println("LOG STATUS | Usuário Duplicado");
+            pessoa = new Pessoa();
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário já existe!",
+                    "Erro na inserção!"));
+            return "usuarioDuplicado";
+        } else {
+            try {
+                daoPessoa.gravar(pessoa);
+                return "inc";
+
+            } catch (HibernateException e) {
+                return "falha";
+            }
+        } 
     }
     
     public List getPessoas() {
@@ -46,11 +60,22 @@ public class CtrManterPessoa {
     }
     
     public String excluir() {
-        try {
-            daoPessoa.excluir(pessoa);
-            return "exc";
-        } catch (HibernateException e) {
-            return "falha";
+        Long casas = daoPessoa.validarProprietario(pessoa.getId());
+        System.out.println("LOG STATUS | Quantidade de casas encontradas: " + casas);
+        if (casas > 0) {
+            pessoa = new Pessoa();
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Você não pode excluir essa pessoa, pois ela é proprietária de " + casas + " casas!",
+                    "Erro na Exclusão!"));
+            return "usuarioProprietario";
+        } else {
+            try {
+                daoPessoa.excluir(pessoa);
+                return "exc";
+            } catch (HibernateException e) {
+                return "falha";
+            }
         }
     }
     

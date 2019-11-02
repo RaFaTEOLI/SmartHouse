@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 To change this template, choose Tools | Templates
 and open the template in the editor.
@@ -6,7 +6,8 @@ and open the template in the editor.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
      <f:view>
 
          <h:head>
@@ -16,28 +17,27 @@ and open the template in the editor.
          </title>
       </h:head>
         <h:body>
-        <h:form>
-            <h:panelGrid columns="2" border="1" cellpadding="0" cellspacing="2">
-                <h:outputText value="#{msgs.nomeCasa}"/>
-                <h:inputText value="#{casa.nome}"/>
-                <h:outputText value="#{msgs.enderecoCasa}"/>
-                <h:inputText value="#{casa.endereco}"/>
-                <h:outputText value="#{msgs.cidadeCasa}"/>
-                <h:inputText value="#{casa.cidade}">
-                    <!--<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>-->
-                </h:inputText> 
-                <h:outputText value="#{msgs.cepCasa}"/>
-                <h:inputText value="#{casa.cep}"/>
-                <h:outputText value="#{msgs.dono}"/>
-                <h:selectOneMenu id="pessoaCasa" value="#{casa.pessoa}">
-                  <f:converter converterId="pessoaConverter" />
-                  <f:selectItems value="#{ctrPessoa.pessoas}" var="pessoaItem" itemLabel="#{pessoaItem.nome}" itemValue="#{pessoaItem}"/>
-                </h:selectOneMenu>
-            </h:panelGrid> 
-            <h:commandButton value="Incluir" action="#{ctrCasa.salvar}">
-                 <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
-            </h:commandButton>
-         </h:form>
+            <b:container fluid="true">
+            <b:form inline="true">
+                <h:panelGrid columns="1" cellpadding="5">
+                  <br></br>
+                  <b:inputText label="#{msgs.nomeCasa}" value="#{casa.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
+                  <b:inputText label="#{msgs.enderecoCasa}" value="#{casa.endereco}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o endereço"/><br></br>
+                  <b:inputText label="#{msgs.cidadeCasa}" value="#{casa.cidade}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a cidade"/><br></br>
+                  <b:inputText label="#{msgs.cepCasa}" value="#{casa.cep}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o CEP" validatorMessage="Valor invalido para CEP">
+                      <f:validateLength  minimum="8"  maximum="8"/>
+                      <f:validateRegex pattern="^([0-9]*)$"/>  
+                  </b:inputText><br></br>
+                  <b:selectOneMenu id="pessoaCasa" value="#{casa.pessoa}" label="#{msgs.dono}" labelStyle="width:95px;" style="width:196px;">
+                    <f:converter converterId="pessoaConverter" />
+                    <f:selectItems value="#{ctrPessoa.pessoas}" var="pessoaItem" itemLabel="#{pessoaItem.nome}" itemValue="#{pessoaItem}"/>
+                  </b:selectOneMenu><br></br>
+                </h:panelGrid>
+                <b:commandButton look="info" value="Incluir" action="#{ctrCasa.salvar}">
+                    <f:setPropertyActionListener value="#{casa}" target= "#{ctrCasa.casa}" />
+                </b:commandButton>
+            </b:form>
+            </b:container>
       </h:body>
    </f:view>
 </html>

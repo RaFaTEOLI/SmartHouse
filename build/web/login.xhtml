@@ -1,30 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
->
- 
-     <h:head>
-         <h:outputStylesheet library="css" name="styles.css"/>
-         <title>
-            <h:outputText value="#{msgs.pageTitle}"/>
-         </title>
-      </h:head>
-     <h:body>
-         <h:form>
-            <h:panelGrid columns="2"> 
-                <h:outputLabel value="Usuário:" />
-                <h:inputText value="#{login.usuario}" size="20" />
-
-                <h:outputLabel value="Senha:" />
-                <h:inputSecret value="#{login.senha}" size="20" />
-
-                <h:commandButton value="Logar" action="#{ctrLogin.send}">
-                    <f:setPropertyActionListener value="#{login}" target= "#{ctrLogin.login}" />
-                </h:commandButton>
-            </h:panelGrid>   
+    xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title><h:outputText value="#{msgs.pageTitle}"/></title>
+    </h:head>
+    <h:body>
+        <h:form id="loginForm">
+        <b:container fluid="true">
+            <b:panel title="Tela de Login" look="primary">
+                <b:row>
+                    <b:column medium-screen="2">
+                      <h:outputText value="Usuário:"/>
+                    </b:column>
+                    <b:column medium-screen="4">
+                      <b:inputText value="#{login.usuario}" placeholder="Usuário" />
+                    </b:column>
+                    <b:column medium-screen="6">
+                      <b:message/>
+                    </b:column>
+                </b:row>
+                <b:row>
+                  <b:column medium-screen="2">
+                    <h:outputText value="Senha:" />
+                  </b:column>
+                  <b:column medium-screen="4">
+                    <b:inputSecret value="#{login.senha}" placeholder="Password" />
+                  </b:column>
+                  <b:column medium-screen="6">
+                    <b:message />
+                  </b:column>
+                </b:row>
+                <b:row>
+                    <b:column span="4" offset="2">
+                        <b:commandButton value="Logar" action="#{ctrLogin.send}" look="primary" style="width:100%">
+                            <f:setPropertyActionListener value="#{login}" target= "#{ctrLogin.login}" />
+                        </b:commandButton>
+                    </b:column>
+                </b:row>
+                </b:panel>
+            </b:container>
         </h:form>
-    </h:body>
+    </h:body>      
 </html>
-

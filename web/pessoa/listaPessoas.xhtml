@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
     <f:view>
         <h:head>
             <link href="styles.css" rel="stylesheet" type="text/css"/>
@@ -11,58 +12,29 @@
             </title>
         </h:head>
        <h:body>
+           <b:container fluid="true">
            <h:form>
-               <h:dataTable border="1" value="#{ctrPessoa.pessoas}" var="pessoa">
-                   <h:column>
-                       <f:facet name="header">
-                           <h:outputText value="#{msgs.IdHeader}"/>
-                       </f:facet>
-                       <h:outputText value="#{pessoa.id}"/>
-                   </h:column>
-                   <h:column>
-                       <f:facet name="header">
-                           <h:outputText value="#{msgs.nameHeader}"/>
-                       </f:facet>
-                       <h:outputText value="#{pessoa.nome}"/>
-                   </h:column>
-                   <h:column>
-                       <f:facet name="header">
-                           <h:outputText value="#{msgs.sobrenomeHeader}"/>
-                       </f:facet>
-                       <h:outputText value="#{pessoa.sobrenome}"/>
-                   </h:column>
-                   <h:column>
-                       <f:facet name="header">
-                           <h:outputText value="#{msgs.usuarioHeader}"/>
-                       </f:facet>
-                       <h:outputText value="#{pessoa.usuario}"/>
-                   </h:column>
-                   <h:column>
-                       <f:facet name="header">
-                           <h:outputText value="#{msgs.senhaHeader}"/>
-                       </f:facet>
-                       <h:outputText value="#{pessoa.senha}"/>
-                   </h:column>
-                   <h:column>
-                       <f:facet name="header">
-                           <h:outputText value="#{msgs.altHeader}"/>
-                       </f:facet>
-                       <h:commandLink value="Alterar" action="alterar">
-                        <f:setPropertyActionListener value="#{pessoa}" target="#{ctrPessoa.pessoa}" />
-                       </h:commandLink>
-                   </h:column>
-                   <h:column>
-                       <f:facet name="header">
-                           <h:outputText value="#{msgs.excHeader}"/>
-                       </f:facet>
-                       <h:commandLink value="Excluir" action="#{ctrPessoa.excluir}">
-                        <f:setPropertyActionListener value="#{pessoa}" target="#{ctrPessoa.pessoa}" />
-                       </h:commandLink>
-                   </h:column>
-                </h:dataTable>
-               <h:commandButton value="Incluir" action="incluir"/>
-               <h:outputLink value="../">Voltar</h:outputLink>
-            </h:form>
+            <b:dataTable value="#{ctrPessoa.pessoas}" var="pessoa">
+              <b:dataTableColumn value="#{pessoa.id}" order="asc"/>
+              <b:dataTableColumn value="#{pessoa.nome}" />
+              <b:dataTableColumn value="#{pessoa.sobrenome}" />
+              <b:dataTableColumn value="#{pessoa.usuario}"/>
+              <b:dataTableColumn value="#{pessoa.senha}" />
+              <b:dataTableColumn label="Alterar">
+                  <b:commandButton look="info" value="Alterar" action="alterar">
+                      <f:setPropertyActionListener value="#{pessoa}" target="#{ctrPessoa.pessoa}" />
+                  </b:commandButton>
+              </b:dataTableColumn>
+              <b:dataTableColumn label="Excluir">
+                  <b:commandButton look="danger" value="Excluir" action="#{ctrPessoa.excluir}">
+                      <f:setPropertyActionListener value="#{pessoa}" target="#{ctrPessoa.pessoa}" />
+                  </b:commandButton>
+              </b:dataTableColumn>
+            </b:dataTable>
+               <b:commandButton look="info" value="Incluir" action="incluir"/>
+               <b:commandButton look="primary" value="Voltar" onclick="../menu.xhtml"/>
+          </h:form>
+          </b:container>
         </h:body>
     </f:view>
 </html>

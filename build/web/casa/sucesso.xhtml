@@ -10,10 +10,11 @@ and open the template in the editor.
     <h:head>
         <h:outputStylesheet library="css" name="styles.css"/>
         <h:outputText value="#{msgs.pageTitle}"/>
+        <br></br>
     </h:head>
     <h:body>
        <f:view>
-           <h:outputText value="Mantido com sucesso"/>
+           <h:outputText value="#{ctrCasa.casa.nome}  inserido(a) com sucesso!"/>
            <br></br>
             <h:outputLink value="listaCasas.xhtml">
                 <f:verbatim>Inicial</f:verbatim>

@@ -21,7 +21,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>exc</from-outcome>
-            <to-view-id>/pessoa/sucesso.xhtml</to-view-id>
+            <to-view-id>/pessoa/sucesso_exc.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -33,6 +33,10 @@
         <navigation-case>
             <from-outcome>falha</from-outcome>
             <to-view-id>/pessoa/falha.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>usuarioDuplicado</from-outcome>
+            <to-view-id>/pessoa/incluir.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -58,7 +62,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>exc</from-outcome>
-            <to-view-id>/casa/sucesso.xhtml</to-view-id>
+            <to-view-id>/casa/sucesso_exc.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>falha</from-outcome>
@@ -112,6 +116,10 @@
         <navigation-case>
             <from-outcome>login</from-outcome>
             <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>menu.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
