@@ -7,6 +7,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>#{msgs.pageTitle}</title>
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="all" />
     </h:head>
     <h:body>
         <div id="header">
@@ -14,5 +15,15 @@
 		  <ui:include src="/template/nav.xhtml" />
             </ui:insert>
         </div>
+        <b:container fluid="true">
+        <b:panel title="Bem-vindo!">
+            <p>Smart House é um sistema de controle de moradores, cômodos e aparelhos da casa, nele é possível cadastrar casas, proprietários, moradores, cômodos, etc, sendo assim podendo ter suas casas em suas mãos onde estiver. </p>
+            <b:panelGrid columns="1">
+                <h:panelGroup style="display:block; text-align:center">
+                        <img src="resources/img/undraw_smart_home_28oy.svg" alt="Smart House" style="width: 50%;"/>
+                </h:panelGroup>
+            </b:panelGrid>     
+        </b:panel>
+        </b:container>
     </h:body>      
 </html>
