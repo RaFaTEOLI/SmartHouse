@@ -57,4 +57,18 @@ public class CtrManterComodo {
         }
     }
     
+    /**
+     * @return the comodo
+     */
+    public Comodo getComodo() {
+        return comodo;
+    }
+
+    /**
+     * @param comodo the comodo to set
+     */
+    public void setComodo(Comodo comodo) {
+        this.comodo = comodo;
+    }
+    
 }

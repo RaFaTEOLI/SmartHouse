@@ -27,6 +27,10 @@
             <from-outcome>inicial</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>usuarioProprietario</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pessoa/incluir.xhtml</from-view-id>
@@ -60,6 +64,10 @@
         <navigation-case>
             <from-outcome>voltarLista</from-outcome>
             <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>usuarioDuplicado</from-outcome>
+            <to-view-id>/pessoa/alterar.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -217,6 +225,10 @@
             <from-outcome>voltarLista</from-outcome>
             <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>moradorDuplicado</from-outcome>
+            <to-view-id>/morador/incluir.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/aparelho/incluir.xhtml</from-view-id>
@@ -257,6 +269,10 @@
         <navigation-case>
             <from-outcome>voltarLista</from-outcome>
             <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>moradorDuplicado</from-outcome>
+            <to-view-id>/morador/alterar.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>

@@ -3,8 +3,10 @@ package control;
 import dao.DaoMorador;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Morador;
 import org.hibernate.HibernateException;
 
@@ -19,12 +21,24 @@ public class CtrManterMorador {
     }
     
     public String salvar() {
-        try {
-            acessoHibernateMorador.gravar(morador);
-            return "inc";
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            return "falha";
+        Long temMorador = acessoHibernateMorador.validarMorador(morador.getMoradorId(), morador.getCasaId());
+        System.out.println("LOG STATUS | temMorador: " + temMorador);
+        if (temMorador > 0) {
+            System.out.println("LOG STATUS | Morador Duplicado");
+            morador = new Morador();
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Morador já existe!",
+                    "Erro na inserção!"));
+            return "moradorDuplicado";
+        } else {
+            try {
+                acessoHibernateMorador.gravar(morador);
+                return "inc";
+            } catch (HibernateException e) {
+                e.printStackTrace();
+                return "falha";
+            }
         }
     }
     
@@ -47,12 +61,38 @@ public class CtrManterMorador {
     }
     
     public String alterar() {
-        try {
-            acessoHibernateMorador.alterar(morador);
-            return "alt";
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            return "falha";
+        Long temMorador = acessoHibernateMorador.validarMorador(morador.getMoradorId(), morador.getCasaId());
+        System.out.println("LOG STATUS | temMorador: " + temMorador);
+        if (temMorador > 0) {
+            System.out.println("LOG STATUS | Morador Duplicado");
+            morador = new Morador();
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Morador já existe!",
+                    "Erro na inserção!"));
+            return "moradorDuplicado";
+        } else {
+            try {
+                acessoHibernateMorador.alterar(morador);
+                return "alt";
+            } catch (HibernateException e) {
+                e.printStackTrace();
+                return "falha";
+            }
         }
+    }
+    
+    /**
+     * @return the morador
+     */
+    public Morador getMorador() {
+        return morador;
+    }
+
+    /**
+     * @param morador the morador to set
+     */
+    public void setMorador(Morador morador) {
+        this.morador = morador;
     }
 }
