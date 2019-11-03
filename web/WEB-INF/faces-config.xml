@@ -42,6 +42,10 @@
             <from-outcome>usuarioDuplicado</from-outcome>
             <to-view-id>/pessoa/incluir.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/pessoa/alterar.xhtml</from-view-id>
@@ -52,6 +56,10 @@
         <navigation-case>
             <from-outcome>falha</from-outcome>
             <to-view-id>/pessoa/falha.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -87,6 +95,10 @@
             <from-outcome>falha</from-outcome>
             <to-view-id>/casa/falha.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/casa/incluir.xhtml</from-view-id>
@@ -97,6 +109,10 @@
          <navigation-case>
             <from-outcome>falha</from-outcome>
             <to-view-id>/casa/falha.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -142,7 +158,11 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>exc</from-outcome>
-            <to-view-id>/aparelho/sucesso.xhtml</to-view-id>
+            <to-view-id>/aparelho/sucesso_exc.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>inicial</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -157,7 +177,11 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>exc</from-outcome>
-            <to-view-id>/morador/sucesso.xhtml</to-view-id>
+            <to-view-id>/morador/sucesso_exc.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>inicial</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -172,7 +196,11 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>exc</from-outcome>
-            <to-view-id>/comodo/sucesso.xhtml</to-view-id>
+            <to-view-id>/comodo/sucesso_exc.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>inicial</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -185,6 +213,10 @@
             <from-outcome>falha</from-outcome>
             <to-view-id>/morador/falha.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/aparelho/incluir.xhtml</from-view-id>
@@ -195,6 +227,10 @@
         <navigation-case>
             <from-outcome>falha</from-outcome>
             <to-view-id>/aparelho/falha.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -218,6 +254,10 @@
             <from-outcome>falha</from-outcome>
             <to-view-id>/morador/falha.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/aparelho/alterar.xhtml</from-view-id>
@@ -229,6 +269,10 @@
             <from-outcome>falha</from-outcome>
             <to-view-id>/aparelho/falha.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/comodo/alterar.xhtml</from-view-id>
@@ -239,6 +283,10 @@
         <navigation-case>
             <from-outcome>falha</from-outcome>
             <to-view-id>/comodo/falha.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>voltarLista</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -288,6 +336,102 @@
     <!-- Lista Casas -->
     <navigation-rule>
         <from-view-id>/casa/listaCasas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Lista Aparelhos -->
+    <navigation-rule>
+        <from-view-id>/aparelho/listaAparelhos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Lista Comodos -->
+    <navigation-rule>
+        <from-view-id>/comodo/listaComodos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Lista Moradores -->
+    <navigation-rule>
+        <from-view-id>/morador/listaMoradores.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>pessoa</from-outcome>
             <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
@@ -381,6 +525,102 @@
             <to-view-id>teste.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <!-- Incluir Aparelhos -->
+    <navigation-rule>
+        <from-view-id>/aparelho/incluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Incluir Comodos -->
+    <navigation-rule>
+        <from-view-id>/aparelho/incluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Incluir Moradores -->
+    <navigation-rule>
+        <from-view-id>/aparelho/incluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
     <!-- Alterar Casas -->
     <navigation-rule>
         <from-view-id>/casa/alterar.xhtml</from-view-id>
@@ -416,6 +656,102 @@
     <!-- Alterar Pessoas -->
     <navigation-rule>
         <from-view-id>/pessoa/alterar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Alterar Aparelhos -->
+    <navigation-rule>
+        <from-view-id>/aparelho/alterar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Alterar Comodos -->
+    <navigation-rule>
+        <from-view-id>/comodo/alterar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pessoa</from-outcome>
+            <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>casa</from-outcome>
+            <to-view-id>/casa/listaCasas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>morador</from-outcome>
+            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>comodo</from-outcome>
+            <to-view-id>/comodo/listaComodos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>teste</from-outcome>
+            <to-view-id>teste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <!-- Alterar Moradores -->
+    <navigation-rule>
+        <from-view-id>/morador/alterar.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>pessoa</from-outcome>
             <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>

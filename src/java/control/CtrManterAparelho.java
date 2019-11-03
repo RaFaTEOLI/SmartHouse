@@ -56,4 +56,18 @@ public class CtrManterAparelho {
         }
     }
     
+    /**
+     * @return the aparelho
+     */
+    public Aparelho getAparelho() {
+        return aparelho;
+    }
+
+    /**
+     * @param pessoa the pessoa to set
+     */
+    public void setAparelho(Aparelho aparelho) {
+        this.aparelho = aparelho;
+    }
+    
 }

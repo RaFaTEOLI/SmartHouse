@@ -6,7 +6,9 @@ and open the template in the editor.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
      <f:view>
 
         <h:head>
@@ -16,26 +18,28 @@ and open the template in the editor.
              </title>
         </h:head>
         <h:body>
-            <h:form>
-                <h:panelGrid columns="2" border="1" cellpadding="0" cellspacing="2">
-                    <h:outputText value="#{msgs.nomeCasa}"/>
-                    <h:inputText value="#{ctrCasa.casa.nome}"/>
-                    <h:outputText value="#{msgs.enderecoCasa}"/>
-                    <h:inputText value="#{ctrCasa.casa.endereco}"/>
-                    <h:outputText value="#{msgs.cidadeCasa}"/>
-                    <h:inputText value="#{ctrCasa.casa.cidade}">
-                        <!--<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>-->
-                    </h:inputText> 
-                    <h:outputText value="#{msgs.cepCasa}"/>
-                    <h:inputText value="#{ctrCasa.casa.cep}"/>
-                    <h:outputText value="#{msgs.dono}"/>
-                    <h:selectOneMenu id="pessoaCasa" value="#{ctrCasa.casa.pessoa}">
-                      <f:converter converterId="pessoaConverter" />
-                      <f:selectItems value="#{ctrPessoa.pessoas}" var="pessoaItem" itemLabel="#{pessoaItem.nome}" itemValue="#{pessoaItem}"/>
-                    </h:selectOneMenu>
+            <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+            </div>
+            <b:container fluid="true">
+            <b:panel title="Alterar Aparelho" look="primary">
+            <b:form inline="true">
+                <h:panelGrid columns="1" cellpadding="5">
+                    <br></br>
+                    <b:inputText label="Nome" value="#{ctrAparelho.aparelho.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
+                    <b:inputText label="Descrição" value="#{ctrAparelho.aparelho.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descrição"/><br></br>
+                    <b:selectOneMenu id="comodoAparelho" value="#{ctrAparelho.aparelho.comodoId}" label="Cômodo" labelStyle="width:95px;" style="width:196px;">
+                        <f:converter converterId="comodoConverter" />
+                        <f:selectItems value="#{ctrComodo.comodos}" var="comodoItem" itemLabel="#{comodoItem.nome}" itemValue="#{comodoItem}"/>
+                    </b:selectOneMenu><br></br>
                 </h:panelGrid> 
-                <h:commandButton value="Alterar" action="#{ctrCasa.alterar}"/>
-            </h:form>
+                <b:commandButton look="info" value="Alterar" action="#{ctrAparelho.alterar}"/>
+                <b:commandButton look="primary" value="Voltar" action="listaAparelhos.xhtml"/>
+            </b:form>
+            </b:panel>
+            </b:container>
       </h:body>
    </f:view>
 </html>
