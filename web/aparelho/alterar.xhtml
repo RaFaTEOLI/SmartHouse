@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 To change this template, choose Tools | Templates
 and open the template in the editor.
@@ -16,6 +16,7 @@ and open the template in the editor.
              <title>
                 <h:outputText value="#{msgs.pageTitle}"/>
              </title>
+            <link rel="icon" type="image/png" href="resources/img/home.png" />
         </h:head>
         <h:body>
             <div id="header">
@@ -29,8 +30,8 @@ and open the template in the editor.
                 <h:panelGrid columns="1" cellpadding="5">
                     <br></br>
                     <b:inputText label="Nome" value="#{ctrAparelho.aparelho.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
-                    <b:inputText label="Descrição" value="#{ctrAparelho.aparelho.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descrição"/><br></br>
-                    <b:selectOneMenu id="comodoAparelho" value="#{ctrAparelho.aparelho.comodoId}" label="Cômodo" labelStyle="width:95px;" style="width:196px;">
+                    <b:inputText label="Descriï¿½ï¿½o" value="#{ctrAparelho.aparelho.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descriï¿½ï¿½o"/><br></br>
+                    <b:selectOneMenu id="comodoAparelho" value="#{ctrAparelho.aparelho.comodoId}" label="Cï¿½modo" labelStyle="width:95px;" style="width:196px;">
                         <f:converter converterId="comodoConverter" />
                         <f:selectItems value="#{ctrComodo.comodos}" var="comodoItem" itemLabel="#{comodoItem.nome}" itemValue="#{comodoItem}"/>
                     </b:selectOneMenu><br></br>
