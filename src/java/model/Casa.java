@@ -117,9 +117,15 @@ public class Casa implements Serializable {
         this.proprietarioid = pessoa;
     }
     
-    @Override
+    /*@Override
     public String toString() {
         return this.casaid + " - " + this.getNome();
+    }*/
+    
+    @Override
+    public String toString() {
+        String idCasa = String.valueOf(this.casaid);
+        return idCasa;
     }
     
     @Override

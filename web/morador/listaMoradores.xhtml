@@ -25,8 +25,8 @@
          <h:form>
              <b:dataTable value="#{ctrMorador.moradores}" var="morador">
                  <b:dataTableColumn label="Id" value="#{morador.moradorId}" order="asc"/>
-                 <b:dataTableColumn label="Nome" value="#{morador.pessoaId}" />
-                 <b:dataTableColumn label="Casa" value="#{morador.casaId}" />
+                 <b:dataTableColumn label="Nome" value="#{morador.pessoaId.nome} #{morador.pessoaId.sobrenome}" />
+                 <b:dataTableColumn label="Casa" value="#{morador.casaId.id} - #{morador.casaId.nome}" />
                  <b:dataTableColumn label="Data Cadastro" value="#{morador.dataCadastro}">
                  </b:dataTableColumn>
                  <b:dataTableColumn label="Alterar">

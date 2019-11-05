@@ -28,7 +28,7 @@
               <b:dataTableColumn value="#{casa.endereco}" />
               <b:dataTableColumn value="#{casa.cidade}"/>
               <b:dataTableColumn value="#{casa.cep}" />
-              <b:dataTableColumn label="Proprietário" value="#{casa.pessoa}"/>
+              <b:dataTableColumn label="Proprietário" value="#{casa.pessoa.nome} #{casa.pessoa.sobrenome}"/>
               <b:dataTableColumn label="Alterar">
                   <b:commandButton look="info" value="Alterar" action="alterar">
                       <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />

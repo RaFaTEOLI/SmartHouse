@@ -96,8 +96,13 @@ public class Pessoa implements Serializable {
         this.senha = senha;
     }
     
-    public String toString() {
+    /*public String toString() {
         return this.getNome() + " " + this.getSobrenome();
+    }*/
+    
+    public String toString() {
+        String idPessoa = String.valueOf(this.pessoaid);
+        return idPessoa;
     }
     
     @Override
