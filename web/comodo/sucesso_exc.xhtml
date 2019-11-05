@@ -24,10 +24,9 @@ and open the template in the editor.
        <b:container fluid="true">
        <b:panel title="Mensagem" look="info">
        <f:view>
+           <b:alert severity="success"><strong>Muito bem!</strong> Você excluiu o cômodo: <strong>#{ctrComodo.comodo.nome}</strong> com sucesso.</b:alert>
            <br></br>
-           <b:alert severity="success"><strong>Muito bem!</strong> o cômodo: <strong>#{ctrComodo.comodo.nome}</strong> foi salvo com sucesso.</b:alert>
-           <br></br>
-           <b:link style-class="some-class" look="success" value="Listar Comodoss" href="listaComodos.xhtml" />
+           <b:link style-class="some-class" look="success" value="Listar Comodos" href="listaComodos.xhtml" />
         </f:view>
         </b:panel>
         </b:container>
