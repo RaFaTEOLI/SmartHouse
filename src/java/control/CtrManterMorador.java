@@ -21,7 +21,8 @@ public class CtrManterMorador {
     }
     
     public String salvar() {
-        Long temMorador = acessoHibernateMorador.validarMorador(morador.getMoradorId(), morador.getCasaId());
+        System.out.println("LOG STATUS | Salvando morador: " + morador.getPessoaId() + " - " + morador.getCasaId());
+        Long temMorador = acessoHibernateMorador.validarMorador(morador.getPessoaId(), morador.getCasaId());
         System.out.println("LOG STATUS | temMorador: " + temMorador);
         if (temMorador > 0) {
             System.out.println("LOG STATUS | Morador Duplicado");
@@ -61,7 +62,7 @@ public class CtrManterMorador {
     }
     
     public String alterar() {
-        Long temMorador = acessoHibernateMorador.validarMorador(morador.getMoradorId(), morador.getCasaId());
+        Long temMorador = acessoHibernateMorador.validarMorador(morador.getPessoaId(), morador.getCasaId());
         System.out.println("LOG STATUS | temMorador: " + temMorador);
         if (temMorador > 0) {
             System.out.println("LOG STATUS | Morador Duplicado");

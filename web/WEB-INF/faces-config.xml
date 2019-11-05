@@ -139,7 +139,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -334,7 +334,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -366,7 +366,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -398,7 +398,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -430,7 +430,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -462,7 +462,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -494,7 +494,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -526,7 +526,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -558,7 +558,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -590,7 +590,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -607,7 +607,7 @@
     </navigation-rule>
     <!-- Incluir Moradores -->
     <navigation-rule>
-        <from-view-id>/aparelho/incluir.xhtml</from-view-id>
+        <from-view-id>/morador/incluir.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>pessoa</from-outcome>
             <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>
@@ -622,7 +622,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -654,7 +654,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -686,7 +686,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -718,7 +718,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -750,7 +750,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>
@@ -782,7 +782,7 @@
         </navigation-case>
         <navigation-case>
             <from-outcome>morador</from-outcome>
-            <to-view-id>/casa/listaMoradores.xhtml</to-view-id>
+            <to-view-id>/morador/listaMoradores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>comodo</from-outcome>

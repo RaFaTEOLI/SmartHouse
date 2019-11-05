@@ -1,6 +1,5 @@
 package dao;
 
-import model.Casa;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -9,7 +8,7 @@ public class DaoMorador extends DaoGenerico {
     public DaoMorador() {
         
     }
-    public Long validarMorador(Integer moradorId, Casa casaId) throws HibernateException {
+    public Long validarMorador(Object moradorId, Object casaId) throws HibernateException {
         Session session = hibernateConfiguracao.openSession();
         Transaction transaction = session.beginTransaction();
         

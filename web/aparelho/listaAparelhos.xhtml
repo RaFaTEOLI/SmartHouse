@@ -26,7 +26,7 @@
               <b:dataTableColumn label="Id" value="#{aparelho.aparelhoId}" order="asc"/>
               <b:dataTableColumn value="#{aparelho.nome}" />
               <b:dataTableColumn value="#{aparelho.descricao}" />
-              <b:dataTableColumn label="Cômodo" value="#{aparelho.comodoId.nome}"/>
+              <b:dataTableColumn label="Cômodo" value="#{aparelho.comodoId}"/>
               <b:dataTableColumn label="Alterar">
                   <b:commandButton look="info" value="Alterar" action="alterar">
                       <f:setPropertyActionListener value="#{aparelho}" target="#{ctrAparelho.aparelho}" />

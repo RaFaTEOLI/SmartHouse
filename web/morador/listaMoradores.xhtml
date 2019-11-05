@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:view>
      <h:head>
@@ -12,65 +14,41 @@
          </title>
       </h:head>
      <h:body>
+         <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+           </div>
+         <b:container fluid="true">
+            <b:panel title="Listar Moradores" look="primary">
+            <b:form inline="true">
          <h:form>
-             <h:dataTable border="1" value="#{ctrCasa.casas}" var="casa">
-               <h:column>
-                  <f:facet name="header">
-                     <h:outputText value="#{msgs.IdHeader}"/>
-                  </f:facet>
-                  <h:outputText value="#{casa.id}"/>
-               </h:column>
-               <h:column>
-                  <f:facet name="header">
-                     <h:outputText value="#{msgs.nameHeader}"/>
-                  </f:facet>
-                  <h:outputText value="#{casa.nome}"/>
-               </h:column>
-                <h:column>
-                  <f:facet name="header">
-                     <h:outputText value="#{msgs.enderecoCasa}"/>
-                  </f:facet>
-                  <h:outputText value="#{casa.endereco}"/>
-               </h:column>
-                 <h:column>
-                  <f:facet name="header">
-                     <h:outputText value="#{msgs.cidadeCasa}"/>
-                  </f:facet>
-                  <h:outputText value="#{casa.cidade}"/>
-               </h:column>
-                 <h:column>
-                  <f:facet name="header">
-                     <h:outputText value="#{msgs.cepCasa}"/>
-                  </f:facet>
-                  <h:outputText value="#{casa.cep}"/>
-               </h:column>
-                <h:column>
-                  <f:facet name="header">
-                     <h:outputText value="#{msgs.dono}"/>
-                  </f:facet>
-                  <h:outputText value="#{casa.pessoa.nome}"/>
-               </h:column>
-               <h:column>
-                    <f:facet name="header">
-                     <h:outputText value="#{msgs.altHeader}"/>
-                  </f:facet>
-                    <h:commandLink value="Alterar" action="alterar">
-                        <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
-                    </h:commandLink>
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                     <h:outputText value="#{msgs.excHeader}"/>
-                  </f:facet>
-                    <h:commandLink value="Excluir" action="#{ctrCasa.excluir}">
-                        <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
-                    </h:commandLink>
-                </h:column>
-            </h:dataTable>
-             <h:commandButton value="Incluir"  action="incluir">
-             </h:commandButton>
+             <b:dataTable value="#{ctrMorador.moradores}" var="morador">
+                 <b:dataTableColumn label="Id" value="#{morador.moradorId}" order="asc"/>
+                 <b:dataTableColumn label="Nome" value="#{morador.pessoaId}" />
+                 <b:dataTableColumn label="Casa" value="#{morador.casaId}" />
+                 <b:dataTableColumn label="Data Cadastro" value="#{morador.dataCadastro}">
+                 </b:dataTableColumn>
+                 <b:dataTableColumn label="Alterar">
+                  <b:commandButton look="info" value="Alterar" action="alterar">
+                      <f:setPropertyActionListener value="#{morador}" target="#{ctrMorador.morador}" />
+                  </b:commandButton>
+              </b:dataTableColumn>
+              <b:dataTableColumn label="Excluir">
+                  <b:commandButton look="danger" value="Excluir" action="#{ctrMorador.excluir}">
+                      <f:setPropertyActionListener value="#{morador}" target="#{ctrMorador.morador}" />
+                  </b:commandButton>
+              </b:dataTableColumn>
+            </b:dataTable>
+               <b:commandButton look="info" value="Incluir" action="incluir"/>
+               <b:commandButton look="primary" value="Voltar" action="inicial"/>
+                  
          </h:form>
+         </b:form>
+        </b:panel>
+      </b:container>
      </h:body>
    </f:view>
 </html>
 
+ 

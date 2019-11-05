@@ -11,7 +11,9 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <h:outputStylesheet library="css" name="styles.css"/>
-        <h:outputText value="#{msgs.pageTitle}"/>
+        <title>
+                <h:outputText value="#{msgs.pageTitle}"/>
+        </title>
     </h:head>
     <h:body>
        <div id="header">
@@ -20,11 +22,11 @@ and open the template in the editor.
             </ui:insert>
        </div>
        <b:container fluid="true">
-       <b:panel title="Mensagem" look="warning">
+       <b:panel title="Mensagem" look="info">
        <f:view>
-           <b:alert severity="danger"><strong>Erro!</strong> Falha ao realizar ação, tente novamente. </b:alert>
+           <b:alert severity="success"><strong>Muito bem!</strong> Você excluiu o morador: <strong>#{ctrMorador.morador.pessoaId.nome}</strong> da casa <strong>#{ctrMorador.morador.casaId.nome}</strong> com sucesso.</b:alert>
            <br></br>
-           <b:link style-class="some-class" look="success" value="Listar Moradores" href="listaMoradore.xhtml" />
+           <b:link style-class="some-class" look="success" value="Listar Moradores" href="listaMoradores.xhtml" />
         </f:view>
         </b:panel>
         </b:container>
