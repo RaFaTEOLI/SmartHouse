@@ -51,23 +51,11 @@ public class CtrManterPessoa {
     }
     
     public String alterar() {
-        Long temUsuario = daoPessoa.validarUsuario(pessoa.getUsuario(), pessoa.getSenha());
-        System.out.println("LOG STATUS | temUsuario: " + temUsuario);
-        if (temUsuario != 0) {
-            System.out.println("LOG STATUS | Usuário Duplicado");
-            pessoa = new Pessoa();
-            FacesContext.getCurrentInstance().addMessage(
-                    null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário já existe!",
-                    "Erro na inserção!"));
-            return "usuarioDuplicado";
-        } else {
-            try {
-                daoPessoa.alterar(pessoa);
-                return "alt";
-            } catch (HibernateException e) {
-                return "falha";
-            }
+        try {
+            daoPessoa.alterar(pessoa);
+            return "alt";
+        } catch (HibernateException e) {
+            return "falha";
         }
     }
     
