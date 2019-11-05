@@ -62,24 +62,12 @@ public class CtrManterMorador {
     }
     
     public String alterar() {
-        Long temMorador = acessoHibernateMorador.validarMorador(morador.getPessoaId(), morador.getCasaId());
-        System.out.println("LOG STATUS | temMorador: " + temMorador);
-        if (temMorador > 0) {
-            System.out.println("LOG STATUS | Morador Duplicado");
-            morador = new Morador();
-            FacesContext.getCurrentInstance().addMessage(
-                    null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Morador já existe!",
-                    "Erro na inserção!"));
-            return "moradorDuplicado";
-        } else {
-            try {
-                acessoHibernateMorador.alterar(morador);
-                return "alt";
-            } catch (HibernateException e) {
-                e.printStackTrace();
-                return "falha";
-            }
+        try {
+            acessoHibernateMorador.alterar(morador);
+            return "alt";
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return "falha";
         }
     }
     
