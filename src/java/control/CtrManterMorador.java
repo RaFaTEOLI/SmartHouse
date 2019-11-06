@@ -84,4 +84,5 @@ public class CtrManterMorador {
     public void setMorador(Morador morador) {
         this.morador = morador;
     }
+    
 }
