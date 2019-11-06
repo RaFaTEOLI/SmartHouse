@@ -32,9 +32,8 @@ and open the template in the editor.
                     <b:inputText label="#{msgs.nomeCasa}" value="#{ctrCasa.casa.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
                     <b:inputText label="#{msgs.enderecoCasa}" value="#{ctrCasa.casa.endereco}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o endere�o"/><br></br>
                     <b:inputText label="#{msgs.cidadeCasa}" value="#{ctrCasa.casa.cidade}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a cidade"/><br></br>
-                    <b:inputText label="#{msgs.cepCasa}" value="#{ctrCasa.casa.cep}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o CEP" validatorMessage="Valor invalido para CEP">
-                      <f:validateLength  minimum="8"  maximum="8"/>
-                      <f:validateRegex pattern="^([0-9]*)$"/>  
+                     <b:inputText label="#{msgs.cepCasa}" value="#{ctrCasa.casa.cep}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o CEP" validatorMessage="Valor invalido para CEP" mask="99999-999">
+                      <f:validateLength  minimum="9"  maximum="9"/>
                     </b:inputText><br></br>
                     <b:selectOneMenu id="pessoaCasa" value="#{ctrCasa.casa.pessoa}" label="#{msgs.dono}" labelStyle="width:95px;" style="width:196px;">
                         <f:converter converterId="pessoaConverter" />

@@ -30,8 +30,8 @@ and open the template in the editor.
                 <h:panelGrid columns="1" cellpadding="5">
                     <br></br>
                     <b:inputText label="Nome" value="#{ctrAparelho.aparelho.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
-                    <b:inputText label="Descri��o" value="#{ctrAparelho.aparelho.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descri��o"/><br></br>
-                    <b:selectOneMenu id="comodoAparelho" value="#{ctrAparelho.aparelho.comodoId}" label="C�modo" labelStyle="width:95px;" style="width:196px;">
+                    <b:inputText label="Descrição" value="#{ctrAparelho.aparelho.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descri��o"/><br></br>
+                    <b:selectOneMenu id="comodoAparelho" value="#{ctrAparelho.aparelho.comodoId}" label="Cômodo" labelStyle="width:95px;" style="width:196px;">
                         <f:converter converterId="comodoConverter" />
                         <f:selectItems value="#{ctrComodo.comodos}" var="comodoItem" itemLabel="#{comodoItem.nome}" itemValue="#{comodoItem}"/>
                     </b:selectOneMenu><br></br>

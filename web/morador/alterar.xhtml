@@ -39,16 +39,22 @@ and open the template in the editor.
                     <f:selectItems value="#{ctrCasa.casas}" var="casaItem" itemLabel="#{casaItem.nome}" itemValue="#{casaItem}"/>
                   </b:selectOneMenu><br></br>
                   
-                  <b:inputText label="#{msgs.dataCadastro}" value="#{morador.dataCadastro}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a data">
-                      <f:convertDateTime pattern="dd/mm/yyyy" /> 
-                  </b:inputText> 
+                <b:dateTimePicker mode="popup"
+                              value="#{morador.dataCadastro}"
+                              label="#{msgs.dataCadastro}" labelStyle="width:120px;" 
+                              style="width:196px;" required="true" 
+                              show-date="true"
+                              show-time="false"
+                              requiredMessage="Por favor preencha a Data"
+                              format="DD/MM/YYYY">
+                </b:dateTimePicker>
    
             </h:panelGrid> 
             
-             <b:commandButton look="info" value="Incluir" action="#{ctrMorador.salvar}">
+             <b:commandButton look="info" value="Alterar" action="#{ctrMorador.alterar}">
                  <f:setPropertyActionListener value="#{morador}" target= "#{ctrMorador.morador}" />
                 </b:commandButton>
-                 <b:commandButton look="primary" value="Voltar" action="inicial"/>
+                <b:button value="Voltar" href="listaMoradores.xhtml" look="primary"/>
             </b:form>
             </b:panel>
             </b:container>

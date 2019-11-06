@@ -17,6 +17,21 @@ and open the template in the editor.
             <h:outputText value="#{msgs.pageTitle}"/>
          </title>
          <link rel="icon" type="image/png" href="resources/img/home.png" />
+         
+         <script>
+            document.getElementById("date").onkeyup = function() {mascararData();};
+
+            function mascararData() {
+              var v = document.getElementById("date");
+              alert("Entrou no metodo");
+              //var v = this.value;
+                if (v.match(/^\d{2}$/) !== null) {
+                    this.value = v + '/';
+                } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+                    this.value = v + '/';
+                }
+            }
+         </script>
       </h:head>
         <h:body>
             <div id="header">
@@ -39,11 +54,15 @@ and open the template in the editor.
                     <f:selectItems value="#{ctrCasa.casas}" var="casaItem" itemLabel="#{casaItem.nome}" itemValue="#{casaItem}"/>
                 </b:selectOneMenu><br></br>
                   
-                <b:datepicker mode="popup"
-                              firstDay="1" value="#{morador.dataCadastro}"
-                              label="#{msgs.dataCadastro}" labelStyle="width:120px;" style="width:196px;" required="true" requiredMessage="Por favor preencha a Data">
-                    <f:convertDateTime pattern="dd/mm/yyyy" /> 
-                </b:datepicker>
+                <b:dateTimePicker mode="popup"
+                              value="#{morador.dataCadastro}"
+                              label="#{msgs.dataCadastro}" labelStyle="width:120px;" 
+                              style="width:196px;" required="true" 
+                              show-date="true"
+                              show-time="false"
+                              requiredMessage="Por favor preencha a Data"
+                              format="DD/MM/YYYY">
+                </b:dateTimePicker>
                 <br></br>
             </h:panelGrid> 
             

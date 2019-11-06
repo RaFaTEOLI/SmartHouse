@@ -30,7 +30,7 @@ and open the template in the editor.
                     <br></br>
                     <b:inputText label="#{msgs.nameHeader}" value="#{ctrPessoa.pessoa.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
                     <b:inputText label="#{msgs.sobrenomeHeader}" value="#{ctrPessoa.pessoa.sobrenome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o sobrenome"/><br></br>
-                    <b:inputText label="#{msgs.usuarioHeader}" value="#{ctrPessoa.pessoa.usuario}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o usuário"/><br></br>
+                    <b:inputText label="#{msgs.usuarioHeader}" value="#{ctrPessoa.pessoa.usuario}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o usuário" disabled="true"/><br></br>
                     <b:inputSecret label="#{msgs.senhaHeader}" value="#{ctrPessoa.pessoa.senha}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a senha"/><br></br>
                </h:panelGrid>
                <b:commandButton look="info" value="Alterar" action="#{ctrPessoa.alterar}"/>

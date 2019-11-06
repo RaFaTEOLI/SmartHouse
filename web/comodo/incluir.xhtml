@@ -30,10 +30,8 @@ and open the template in the editor.
                 <h:panelGrid columns="1" cellpadding="5">
                   <br></br>
                   <b:inputText label="Nome" value="#{comodo.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
-                  <b:inputText label="Andar" value="#{comodo.andar}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o andar" validatorMessage="Valor inválido para andar">
+                  <b:inputText label="Andar" value="#{comodo.andar}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o andar" validatorMessage="Valor inválido para andar" mask="integer" render-label="true">
                       <f:validateLength  minimum="1"  maximum="8"/>
-                      <f:validateRegex pattern="^([1-9]*)$"/>
-		      <f:convertNumber/>
                   </b:inputText><br></br>
                   <b:selectOneMenu id="casaComodo" value="#{comodo.casaId}" label="Casa" labelStyle="width:95px;" style="width:196px;">
                     <f:converter converterId="casaConverter" />

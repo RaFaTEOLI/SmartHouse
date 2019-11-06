@@ -28,16 +28,14 @@ and open the template in the editor.
             <b:form inline="true">
                 <h:panelGrid columns="1" cellpadding="5">
                     <br></br>
-                    <b:inputText label="#{msgs.nomeComodo}" value="#{ctrComodo.comodo.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
-                    <b:inputText label="#{msgs.andarComodo}" value="#{ctrComodo.comodo.andar}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o endere�o"/><br></br>
-                      <f:validateLength  minimum="1"/>
-                      <f:validateRegex pattern="^([1-9]*)$"/>  
-		      <f:convertNumber/>
-                    </b:inputText><br></br>
-                    <b:selectOneMenu id="pessoaCasa" value="#{ctrComodo.comodo.casa}" label="#{msgs.dono}" labelStyle="width:95px;" style="width:196px;">
-                        <f:converter converterId="pessoaConverter" />
-                        <f:selectItems value="#{ctrCasa.casas}" var="casaItem" itemLabel="#{casaItem.nome}" itemValue="#{casaItem}"/>
-                    </b:selectOneMenu><br></br>
+                    <b:inputText label="Nome" value="#{ctrComodo.comodo.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
+                    <b:inputText label="Andar" value="#{ctrComodo.comodo.andar}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o andar" validatorMessage="Valor inválido para andar" mask="integer" render-label="true">
+                      <f:validateLength  minimum="1"  maximum="8"/>
+                  </b:inputText><br></br><br></br>
+                   <b:selectOneMenu id="casaComodo" value="#{ctrComodo.comodo.casaId}" label="Casa" labelStyle="width:95px;" style="width:196px;">
+                    <f:converter converterId="casaConverter" />
+                    <f:selectItems value="#{ctrCasa.casas}" var="casaItem" itemLabel="#{casaItem.nome}" itemValue="#{casaItem}"/>
+                  </b:selectOneMenu><br></br>
                 </h:panelGrid> 
                 <b:commandButton look="info" value="Alterar" action="#{ctrComodo.alterar}"/>
                 <b:commandButton look="primary" value="Voltar" action="listaComodos.xhtml"/>
