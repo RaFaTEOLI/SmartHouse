@@ -16,22 +16,7 @@ and open the template in the editor.
          <title>
             <h:outputText value="#{msgs.pageTitle}"/>
          </title>
-         <link rel="icon" type="image/png" href="resources/img/home.png" />
-         
-         <script>
-            document.getElementById("date").onkeyup = function() {mascararData();};
-
-            function mascararData() {
-              var v = document.getElementById("date");
-              alert("Entrou no metodo");
-              //var v = this.value;
-                if (v.match(/^\d{2}$/) !== null) {
-                    this.value = v + '/';
-                } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
-                    this.value = v + '/';
-                }
-            }
-         </script>
+         <link rel="icon" type="image/png" href="../resources/img/home.png" />
       </h:head>
         <h:body>
             <div id="header">

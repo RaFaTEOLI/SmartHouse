@@ -16,7 +16,7 @@ and open the template in the editor.
              <title>
                 <h:outputText value="#{msgs.pageTitle}"/>
              </title>
-            <link rel="icon" type="image/png" href="resources/img/home.png" />
+            <link rel="icon" type="image/png" href="../resources/img/home.png" />
         </h:head>
         <h:body>
             <div id="header">
@@ -29,18 +29,18 @@ and open the template in the editor.
             <b:form inline="true">
         <h:panelGrid columns="1" cellpadding="5">
                 <br></br>
-                <b:selectOneMenu id="pessoaMorador" value="#{morador.pessoaId}" label="#{msgs.dono}" labelStyle="width:95px;" style="width:196px;">
+                <b:selectOneMenu id="pessoaMorador" value="#{ctrMorador.morador.pessoaId}" label="#{msgs.dono}" labelStyle="width:115px;" style="width:196px;" disabled="true">
                     <f:converter converterId="pessoaConverter" />
                     <f:selectItems value="#{ctrPessoa.pessoas}" var="pessoaItem" itemLabel="#{pessoaItem.nome}" itemValue="#{pessoaItem}"/>
                   </b:selectOneMenu><br></br>
                   
-                  <b:selectOneMenu id="casaMorador" value="#{morador.casaId}" label="#{msgs.casaMorador}" labelStyle="width:95px;" style="width:196px;">
+                  <b:selectOneMenu id="casaMorador" value="#{ctrMorador.morador.casaId}" label="#{msgs.casaMorador}" labelStyle="width:115px;" style="width:196px;">
                     <f:converter converterId="casaConverter" />
                     <f:selectItems value="#{ctrCasa.casas}" var="casaItem" itemLabel="#{casaItem.nome}" itemValue="#{casaItem}"/>
                   </b:selectOneMenu><br></br>
                   
                 <b:dateTimePicker mode="popup"
-                              value="#{morador.dataCadastro}"
+                              value="#{ctrMorador.morador.dataCadastro}"
                               label="#{msgs.dataCadastro}" labelStyle="width:120px;" 
                               style="width:196px;" required="true" 
                               show-date="true"
@@ -48,7 +48,7 @@ and open the template in the editor.
                               requiredMessage="Por favor preencha a Data"
                               format="DD/MM/YYYY">
                 </b:dateTimePicker>
-   
+                <br></br>
             </h:panelGrid> 
             
              <b:commandButton look="info" value="Alterar" action="#{ctrMorador.alterar}">

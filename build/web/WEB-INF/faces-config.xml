@@ -575,7 +575,7 @@
     </navigation-rule>
     <!-- Incluir Comodos -->
     <navigation-rule>
-        <from-view-id>/aparelho/incluir.xhtml</from-view-id>
+        <from-view-id>/comodo/incluir.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>pessoa</from-outcome>
             <to-view-id>/pessoa/listaPessoas.xhtml</to-view-id>

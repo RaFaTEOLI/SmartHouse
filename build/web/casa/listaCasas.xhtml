@@ -26,7 +26,7 @@
             <b:dataTable value="#{ctrCasa.casas}" var="casa">
               <b:dataTableColumn value="#{casa.id}" order="asc"/>
               <b:dataTableColumn value="#{casa.nome}" />
-              <b:dataTableColumn value="#{casa.endereco}" />
+              <b:dataTableColumn label="Endereço" value="#{casa.endereco}" />
               <b:dataTableColumn value="#{casa.cidade}"/>
               <b:dataTableColumn value="#{casa.cep}" />
               <b:dataTableColumn label="Proprietário" value="#{casa.pessoa.nome} #{casa.pessoa.sobrenome}"/>
