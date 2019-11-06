@@ -30,8 +30,9 @@ and open the template in the editor.
                     <br></br>
                     <b:inputText label="#{msgs.nomeComodo}" value="#{ctrComodo.comodo.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
                     <b:inputText label="#{msgs.andarComodo}" value="#{ctrComodo.comodo.andar}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o endere�o"/><br></br>
-                      <f:validateLength  minimum="8"  maximum="8"/>
+                      <f:validateLength  minimum="1"/>
                       <f:validateRegex pattern="^([1-9]*)$"/>  
+		      <f:convertNumber/>
                     </b:inputText><br></br>
                     <b:selectOneMenu id="pessoaCasa" value="#{ctrComodo.comodo.casa}" label="#{msgs.dono}" labelStyle="width:95px;" style="width:196px;">
                         <f:converter converterId="pessoaConverter" />
