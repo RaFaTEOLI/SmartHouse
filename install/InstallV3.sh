@@ -91,7 +91,8 @@ function instalarTomcat() {
         echo "Liberando trafégo na porta 8080..."
         sudo ufw allow 8080/tcp
 
-        #sed -i 's,password="<must-be-changed>",password="${PASS}",g' /opt/tomcat/conf/tomcat-users.xml
+        PASS="smart_house"
+        sed -i "s|password=\"<must-be-changed>\"|password=\"${PASS}\"|g" /opt/tomcat/conf/tomcat-users.xml
 
         # Reinicia o tomcat
         sudo systemctl restart tomcat
@@ -308,13 +309,14 @@ function instalarProgramas() {
         apt-get install iptraf --assume-yes
 
         echo "Configurando Firewall/IPTables..."
-        apt-get install iptables-persistent --assume-yes
+        apt-get install -y iptables-persistent
 }
 
 function instalarSmartHouse() {
+        apt-get install -y git
         cd /etc/
-        mv Smart_House_Web/ /var/lib/tomcat/webapps/Smart_House_Web
-        chmod +x /var/lib/tomcat/webapps/Smart_House_Web
+        mv Smart_House_Web/ /opt/tomcat/webapps/Smart_House_Web
+        chmod -R +x /opt/tomcat/webapps/Smart_House_Web/*
 }
 
 function configurarFirewall() {
