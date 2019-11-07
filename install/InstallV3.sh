@@ -313,8 +313,8 @@ function instalarProgramas() {
 
 function instalarSmartHouse() {
         cd /etc/
-        mv Smart_House/ /var/lib/tomcat/webapps/Smart_House
-        chmod +x /var/lib/tomcat/webapps/Smart_House
+        mv Smart_House_Web/ /var/lib/tomcat/webapps/Smart_House_Web
+        chmod +x /var/lib/tomcat/webapps/Smart_House_Web
 }
 
 function configurarFirewall() {
