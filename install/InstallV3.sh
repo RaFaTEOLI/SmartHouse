@@ -311,6 +311,7 @@ function instalarProgramas() {
 }
 
 function instalarSmartHouse() {
+        echo "Instalando Smart House Web..."
         apt-get install -y git
         cd /etc/
         mv Smart_House_Web/ /opt/tomcat/webapps/ROOT/Smart_House_Web
@@ -606,6 +607,7 @@ function principal() {
         criarScriptDeUsoMemoria
         adicionarCrontab
         instalarProgramas
+        instalarSmartHouse
         configurarFirewall
         instalarPowerCPUTask
 }
