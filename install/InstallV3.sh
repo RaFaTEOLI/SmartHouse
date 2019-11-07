@@ -138,9 +138,7 @@ function instalarPostgreSQL() {
         WITH OWNER = postgres
         ENCODING = 'UTF8'
         TABLESPACE = pg_default
-        LC_COLLATE = 'pt_BR.UTF-8'
-        LC_CTYPE = 'pt_BR.UTF-8'
-        CONNECTION LIMIT = -1;" | sudo -u postgres psql
+        CONNECTION LIMIT = -1;" | sudo -i -u postgres psql
                 
         echo "CREATE TABLE public.pessoa (
         pessoaId SERIAL,
@@ -205,7 +203,7 @@ function instalarPostgreSQL() {
         INSERT INTO public.aparelho (comodoId, nome, descricao) VALUES (2, 'TV 32', 'TV da cozinha');
         " > /home/pgScript.sql
 
-        echo "\i /home/pgScript.sql" | sudo -u postgres psql smart_house
+        echo "\i /home/pgScript.sql" | sudo -i -u postgres psql smart_house
 }
 
 function criarScriptBackup() {
@@ -315,9 +313,9 @@ function instalarProgramas() {
 function instalarSmartHouse() {
         apt-get install -y git
         cd /etc/
-        mv Smart_House_Web/ /opt/tomcat/webapps/ROOT/Smart_House_Web
-        mv /opt/tomcat/webapps/ROOT/Smart_House_Web/Smart_House_Web.war /opt/tomcat/webapps/
-        #http://localhost:8080/Smart_House_Web/
+        mv Smart_House/ /opt/tomcat/webapps/ROOT/Smart_House
+        mv /opt/tomcat/webapps/ROOT/Smart_House/Smart_House.war /opt/tomcat/webapps/
+        #http://localhost:8080/Smart_House/
 }
 
 function configurarFirewall() {
