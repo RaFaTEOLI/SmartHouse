@@ -314,7 +314,8 @@ function instalarSmartHouse() {
         apt-get install -y git
         cd /etc/
         mv Smart_House_Web/ /opt/tomcat/webapps/ROOT/Smart_House_Web
-        mv /opt/tomcat/webapps/ROOT/Smart_House_Web/Smart_House_Web.war /opt/tomcat/webapps/
+        mv /opt/tomcat/webapps/ROOT/Smart_House_Web/dist/Smart_House_Web.war /opt/tomcat/webapps/
+        #mv /opt/tomcat/webapps/ROOT/Smart_House_Web/Smart_House_Web.war /opt/tomcat/webapps/
         #http://localhost:8080/Smart_House_Web/
 }
 
