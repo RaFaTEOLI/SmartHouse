@@ -9,6 +9,7 @@ Esse é um trabalho da faculdade, nós criamos um site usando JSF, para gerencia
 <h1>Como Instalar</h1>
 
 Rode esse comando para clonar o projeto no seu servidor: 
+
 <strong>cd /etc/ && git clone https://github.com/RaFaTEOLI/Smart_House_Web</strong>
 
 Esse comando acima ele acessa o diretório /etc/ e baixa o repositório Smart_House_Web
