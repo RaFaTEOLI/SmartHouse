@@ -1,0 +1,1 @@
+Move this file to /opt/tomcat/webapps/
