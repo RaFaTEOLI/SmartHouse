@@ -1,4 +1,4 @@
-# Smart House Web
+# Smart House
 
 Trabalho de SI - UNIP
 
