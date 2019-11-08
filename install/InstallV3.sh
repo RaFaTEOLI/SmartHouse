@@ -612,6 +612,7 @@ function principal() {
         criarScriptBackup
         criarScriptMonitoramentoProcessos
         criarScriptDeUsoMemoria
+        criarScriptLogSmartHouse
         adicionarCrontab
         instalarProgramas
         instalarSmartHouse
