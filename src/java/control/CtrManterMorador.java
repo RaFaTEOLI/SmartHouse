@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import model.Data;
 import model.Morador;
 import org.hibernate.HibernateException;
 
@@ -15,6 +16,7 @@ import org.hibernate.HibernateException;
 public class CtrManterMorador {
     DaoMorador acessoHibernateMorador;
     private Morador morador;
+    Data data = new Data();
     
     public CtrManterMorador() {
         acessoHibernateMorador = new DaoMorador();
@@ -35,7 +37,7 @@ public class CtrManterMorador {
         } else {
             try {
                 acessoHibernateMorador.gravar(morador);
-                System.out.println("LOG SYSTEM | Smart House | Morador | Insert | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
+                System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Morador | Insert | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
                 return "inc";
             } catch (HibernateException e) {
                 e.printStackTrace();
@@ -55,7 +57,7 @@ public class CtrManterMorador {
     public String excluir() {
         try {
             acessoHibernateMorador.excluir(morador);
-            System.out.println("LOG SYSTEM | Smart House | Morador | Delete | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
+            System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Morador | Delete | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
             return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -66,7 +68,7 @@ public class CtrManterMorador {
     public String alterar() {
         try {
             acessoHibernateMorador.alterar(morador);
-            System.out.println("LOG SYSTEM | Smart House | Morador | Update | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
+            System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Morador | Update | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
             return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();

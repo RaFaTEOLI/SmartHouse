@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import model.Data;
 import model.Pessoa;
 import org.hibernate.HibernateException;
 
@@ -15,6 +16,7 @@ import org.hibernate.HibernateException;
 public class CtrManterPessoa {
     DaoPessoa daoPessoa;
     private Pessoa pessoa;
+    Data data = new Data();
     
     public CtrManterPessoa() {
         daoPessoa = new DaoPessoa();
@@ -34,7 +36,7 @@ public class CtrManterPessoa {
         } else {
             try {
                 daoPessoa.gravar(pessoa);
-                System.out.println("LOG SYSTEM | Smart House | Pessoa | Insert | Nome: " + pessoa.getUsuario() + " | Sobrenome: " + pessoa.getSobrenome() + " | Usuário: " + pessoa.getUsuario() + " | Senha: " + pessoa.getSenha());
+                System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Pessoa | Insert | Nome: " + pessoa.getUsuario() + " | Sobrenome: " + pessoa.getSobrenome() + " | Usuário: " + pessoa.getUsuario() + " | Senha: " + pessoa.getSenha());
                 return "inc";
 
             } catch (HibernateException e) {
@@ -54,7 +56,7 @@ public class CtrManterPessoa {
     public String alterar() {
         try {
             daoPessoa.alterar(pessoa);
-            System.out.println("LOG SYSTEM | Smart House | Pessoa | Update | Nome: " + pessoa.getUsuario() + " | Sobrenome: " + pessoa.getSobrenome() + " | Usuário: " + pessoa.getUsuario() + " | Senha: " + pessoa.getSenha());
+            System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Pessoa | Update | Nome: " + pessoa.getUsuario() + " | Sobrenome: " + pessoa.getSobrenome() + " | Usuário: " + pessoa.getUsuario() + " | Senha: " + pessoa.getSenha());
             return "alt";
         } catch (HibernateException e) {
             return "falha";
@@ -74,7 +76,7 @@ public class CtrManterPessoa {
         } else {
             try {
                 daoPessoa.excluir(pessoa);
-                System.out.println("LOG SYSTEM | Smart House | Pessoa | Delete | Nome: " + pessoa.getUsuario() + " | Sobrenome: " + pessoa.getSobrenome() + " | Usuário: " + pessoa.getUsuario() + " | Senha: " + pessoa.getSenha());
+                System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Pessoa | Delete | Nome: " + pessoa.getUsuario() + " | Sobrenome: " + pessoa.getSobrenome() + " | Usuário: " + pessoa.getUsuario() + " | Senha: " + pessoa.getSenha());
                 return "exc";
             } catch (HibernateException e) {
                 return "falha";

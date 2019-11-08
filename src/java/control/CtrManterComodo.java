@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.Comodo;
+import model.Data;
 import org.hibernate.HibernateException;
 
 @ManagedBean (name="ctrComodo")
@@ -13,6 +14,7 @@ import org.hibernate.HibernateException;
 public class CtrManterComodo {
     DaoComodo acessoHibernateQuarto;
     private Comodo comodo;
+    Data data = new Data();
     
     public CtrManterComodo() {
         acessoHibernateQuarto = new DaoComodo();
@@ -21,7 +23,7 @@ public class CtrManterComodo {
     public String salvar() {
         try {
             acessoHibernateQuarto.gravar(comodo);
-            System.out.println("LOG SYSTEM | Smart House | Cômodo | Insert | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
+            System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Cômodo | Insert | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
             return "inc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -41,7 +43,7 @@ public class CtrManterComodo {
     public String excluir() {
         try {
             acessoHibernateQuarto.excluir(comodo);
-            System.out.println("LOG SYSTEM | Smart House | Cômodo | Delete | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
+            System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Cômodo | Delete | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
             return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -52,7 +54,7 @@ public class CtrManterComodo {
     public String alterar() {
         try {
             acessoHibernateQuarto.alterar(comodo);
-            System.out.println("LOG SYSTEM | Smart House | Cômodo | Update | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
+            System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Cômodo | Update | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
             return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();
