@@ -286,12 +286,19 @@ function criarScriptDeUsoMemoria() {
         chmod +x /etc/usoDeMemoria/monitorarUsoMem.sh
 }
 
+function criarScriptLogSmartHouse() {
+        mkdir /etc/logSystem
+        echo '#!/bin/bash
+grep "LOG SYSTEM" /opt/tomcat/logs/catalina.out > /var/log/smart_house.log' > /etc/logSystem/logSystem.sh
+}
+
 function adicionarCrontab() {
         cd ~
         echo "Adicionando Monitorador de Processos no crontab..."
         # Executa script a cada 3 minutos
         /bin/echo "*/3 * * * * /etc/logDeMemoria/monitorarProcessos.sh" >> mycron
         /bin/echo "*/3 * * * * /etc/usoDeMemoria/monitorarUsoMem.sh" >> mycron
+        /bin/echo "*/3 * * * * /etc/logSystem/logSystem.sh" >> mycron
         crontab mycron
 }
 

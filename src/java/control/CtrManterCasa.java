@@ -20,6 +20,7 @@ public class CtrManterCasa {
     public String salvar() {
         try {
             daoCasa.gravar(casa);
+            System.out.println("LOG SYSTEM | Smart House | Casa | Insert | Nome: " + casa.getNome() + " | Endereço: " + casa.getEndereco() + " | Cidade: " + casa.getCidade() + " | CEP: " + casa.getCep() + " | Proprietário: " + casa.getPessoa());
             return "inc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -38,6 +39,7 @@ public class CtrManterCasa {
     public String excluir() {
         try {
             daoCasa.excluir(casa);
+            System.out.println("LOG SYSTEM | Smart House | Casa | Delete | Nome: " + casa.getNome() + " | Endereço: " + casa.getEndereco() + " | Cidade: " + casa.getCidade() + " | CEP: " + casa.getCep() + " | Proprietário: " + casa.getPessoa());
             return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -48,6 +50,7 @@ public class CtrManterCasa {
     public String alterar() {
         try {
             daoCasa.alterar(casa);
+            System.out.println("LOG SYSTEM | Smart House | Casa | Update | Nome: " + casa.getNome() + " | Endereço: " + casa.getEndereco() + " | Cidade: " + casa.getCidade() + " | CEP: " + casa.getCep() + " | Proprietário: " + casa.getPessoa());
             return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();

@@ -21,6 +21,7 @@ public class CtrManterComodo {
     public String salvar() {
         try {
             acessoHibernateQuarto.gravar(comodo);
+            System.out.println("LOG SYSTEM | Smart House | Cômodo | Insert | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
             return "inc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -40,6 +41,7 @@ public class CtrManterComodo {
     public String excluir() {
         try {
             acessoHibernateQuarto.excluir(comodo);
+            System.out.println("LOG SYSTEM | Smart House | Cômodo | Delete | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
             return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -50,6 +52,7 @@ public class CtrManterComodo {
     public String alterar() {
         try {
             acessoHibernateQuarto.alterar(comodo);
+            System.out.println("LOG SYSTEM | Smart House | Cômodo | Update | Nome: " + comodo.getNome() + " | Andar: " + comodo.getAndar() + " | Casa: " + comodo.getCasaId());
             return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();

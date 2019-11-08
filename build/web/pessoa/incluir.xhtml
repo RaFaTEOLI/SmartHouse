@@ -27,8 +27,14 @@ xhtml1-strict.dtd">
                   <br></br>
                   <b:inputText label="#{msgs.nameHeader}" value="#{pessoa.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
                   <b:inputText label="#{msgs.sobrenomeHeader}" value="#{pessoa.sobrenome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o sobrenome"/><br></br>
-                  <b:inputText label="#{msgs.usuarioHeader}" value="#{pessoa.usuario}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o usuário"/><br></br>
-                  <b:inputSecret label="#{msgs.senhaHeader}" value="#{pessoa.senha}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a senha"/><br></br>
+                  <b:inputText label="#{msgs.usuarioHeader}" value="#{pessoa.usuario}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o usuário" validatorMessage="Usuário Inválido (Contém Espaços)">
+                      <f:validateRegex pattern="^(\w+\S+)$" />
+                  </b:inputText>    
+                  <br></br>
+                  <b:inputSecret label="#{msgs.senhaHeader}" value="#{pessoa.senha}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a senha" validatorMessage="Senha Inválida (Contém Espaços)">
+                      <f:validateRegex pattern="^(\w+\S+)$" />
+                  </b:inputSecret>    
+                  <br></br>
                 </h:panelGrid>
                 <b:commandButton look="info" value="Incluir" action="#{ctrPessoa.salvar}">
                     <f:setPropertyActionListener value="#{pessoa}" target= "#{ctrPessoa.pessoa}" />

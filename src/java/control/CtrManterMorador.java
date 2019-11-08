@@ -35,6 +35,7 @@ public class CtrManterMorador {
         } else {
             try {
                 acessoHibernateMorador.gravar(morador);
+                System.out.println("LOG SYSTEM | Smart House | Morador | Insert | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
                 return "inc";
             } catch (HibernateException e) {
                 e.printStackTrace();
@@ -54,6 +55,7 @@ public class CtrManterMorador {
     public String excluir() {
         try {
             acessoHibernateMorador.excluir(morador);
+            System.out.println("LOG SYSTEM | Smart House | Morador | Delete | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
             return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -64,6 +66,7 @@ public class CtrManterMorador {
     public String alterar() {
         try {
             acessoHibernateMorador.alterar(morador);
+            System.out.println("LOG SYSTEM | Smart House | Morador | Update | Pessoa: " + morador.getPessoaId() + " | Casa: " + morador.getCasaId() + " | Data Cadastro: " + morador.getDataCadastro());
             return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();

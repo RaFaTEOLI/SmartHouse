@@ -21,6 +21,7 @@ public class CtrManterAparelho {
     public String salvar() {
         try {
             acessoHibernateAparelho.gravar(aparelho);
+            System.out.println("LOG SYSTEM | Smart House | Aparelho | Insert | Nome: " + aparelho.getNome() + " | Descrição: " + aparelho.getDescricao() + " | Cômodo: " + aparelho.getComodoId());
             return "inc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -39,6 +40,7 @@ public class CtrManterAparelho {
     public String excluir() {
         try {
             acessoHibernateAparelho.excluir(aparelho);
+            System.out.println("LOG SYSTEM | Smart House | Aparelho | Delete | Nome: " + aparelho.getNome() + " | Descrição: " + aparelho.getDescricao() + " | Cômodo: " + aparelho.getComodoId());
             return "exc";
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -49,6 +51,7 @@ public class CtrManterAparelho {
     public String alterar() {
         try {
             acessoHibernateAparelho.alterar(aparelho);
+            System.out.println("LOG SYSTEM | Smart House | Aparelho | Update | Nome: " + aparelho.getNome() + " | Descrição: " + aparelho.getDescricao() + " | Cômodo: " + aparelho.getComodoId());
             return "alt";
         } catch (HibernateException e) {
             e.printStackTrace();
