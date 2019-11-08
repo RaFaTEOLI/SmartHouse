@@ -170,8 +170,8 @@ function instalarPostgreSQL() {
         pessoaId INTEGER,
         casaId INTEGER,
         data_cadastro DATE,
-        FOREIGN KEY (pessoaId) REFERENCES pessoa(pessoaId),
-        FOREIGN KEY (casaId) REFERENCES casa(casaId),
+        FOREIGN KEY (pessoaId) REFERENCES pessoa(pessoaId) ON DELETE CASCADE,
+        FOREIGN KEY (casaId) REFERENCES casa(casaId) ON DELETE CASCADE,
         PRIMARY KEY (moradorId)
         );
 
@@ -182,7 +182,7 @@ function instalarPostgreSQL() {
         casaId INTEGER,
         nome VARCHAR(35),
         andar INTEGER,
-        FOREIGN KEY (casaId) REFERENCES casa(casaId),
+        FOREIGN KEY (casaId) REFERENCES casa(casaId) ON DELETE CASCADE,
         PRIMARY KEY (comodoId)
         );
 
@@ -194,7 +194,7 @@ function instalarPostgreSQL() {
         comodoId INTEGER,
         nome VARCHAR(35),
         descricao VARCHAR(35),
-        FOREIGN KEY (comodoId) REFERENCES comodo(comodoId),
+        FOREIGN KEY (comodoId) REFERENCES comodo(comodoId) ON DELETE CASCADE,
         PRIMARY KEY (aparelhoId)
         );
 
