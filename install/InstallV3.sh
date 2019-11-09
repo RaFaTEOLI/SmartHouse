@@ -106,6 +106,7 @@ function instalarSSH() {
         sed -i 's,PermitRootLogin no,PermitRootLogin yes,g' /etc/ssh/sshd_config
         sed -i 's,PermitRootLogin prohibit-password,PermitRootLogin yes,g' /etc/ssh/sshd_config
         sed -i 's,#PermitRootLogin prohibit-password,PermitRootLogin yes,g' /etc/ssh/sshd_config
+        sed -i 's,#PermitRootLogin yes,PermitRootLogin yes,g' /etc/ssh/sshd_config
         /etc/init.d/ssh stop
         /etc/init.d/ssh start
 }
@@ -290,6 +291,7 @@ function criarScriptLogSmartHouse() {
         mkdir /etc/logSystem
         echo '#!/bin/bash
 grep "LOG SYSTEM" /opt/tomcat/logs/catalina.out > /var/log/smart_house.log' > /etc/logSystem/logSystem.sh
+        chmod +x /etc/logSystem/logSystem.sh
 }
 
 function adicionarCrontab() {
@@ -350,20 +352,21 @@ function configurarFirewall() {
 
         # Fazendo liberacao dos IPs -------------------------------- |
         echo "Liberando acesso ao IP que irá acessar o servidor SSH..."
-        iptables -A INPUT -p tcp --dport 22 -s 192.168.1.36 -j ACCEPT
+        iptables -A INPUT -p tcp --dport 22 -s 192.168.1.36 -j ACCEPT -m comment --comment "IP que vai acessar o SSH"
 
         echo "Liberando acesso ao IP que irá acessar o banco de dados..."
-        iptables -A INPUT -p tcp --dport 5432 -s 192.168.1.36 -j ACCEPT
+        iptables -A INPUT -p tcp --dport 5432 -s 192.168.1.36 -j ACCEPT -m comment --comment "IP que vai acessar o BD"
 
         echo "Liberando acesso ao IP que irá acessar a aplicacao..."
-        iptables -A INPUT -p tcp --dport 8080 -s 192.168.1.36 -j ACCEPT
+        iptables -A INPUT -p tcp --dport 8080 -s 192.168.1.36 -j ACCEPT -m comment --comment "IP que vai acessar a aplicacao"
 
         echo "Liberando acesso ao IP do administrador do servidor..."
-        iptables -I INPUT -s 192.168.1.40 -j ACCEPT
-        iptables -I INPUT -s 192.168.1.36 -j ACCEPT
+        iptables -I INPUT -s 192.168.1.40 -j ACCEPT -m comment --comment "Admin"
+        iptables -I INPUT -s 192.168.1.36 -j ACCEPT -m comment --comment "Admin"
 
-        echo "Liberando acesso total ao IP da maquina..." 
-        iptables -I INPUT -s $IP -j ACCEPT
+        echo "Liberando acesso total ao IP da maquina..."
+        iptables -I INPUT -s 127.0.0.1 -j ACCEPT -m comment --comment "Maquina Local" 
+        iptables -I INPUT -s $IP -j ACCEPT -m comment --comment "Maquina Local"
 
         # Otimiza conexão de entrada e saida ------------------------------- |
         iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -402,7 +405,9 @@ function configurarFirewall() {
         #echo "Bloqueando acesso a porta do tomcat"
         #iptables -A INPUT -p tcp --dport 8080 -j DROP
         #echo "Bloqueando acesso a porta do PostgreSQL"
-        #iptables -A INPUT -p tcp --dport 8080 -j DROP
+        #iptables -A INPUT -p tcp --dport 5432 -j DROP
+        #echo "Liberando acesso a porta do PostgreSQL"
+        #iptables -I INPUT -p tcp --dport 5432 -j ACCEPT
 
         echo "Adicionando DNS do google no resolv.conf..."
         echo "nameserver 8.8.8.8" >> /etc/resolv.conf
@@ -414,6 +419,8 @@ function configurarFirewall() {
 
         echo "Salvando arquivo do Firewall..."
         iptables-save > /etc/iptables/iptables-save
+        # Comando para restaurar as regras
+        #iptables-restore < /etc/iptables/iptables-save
 }
 
 function instalarPowerCPUTask() {
