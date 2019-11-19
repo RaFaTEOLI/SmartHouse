@@ -202,6 +202,18 @@ function instalarPostgreSQL() {
         INSERT INTO public.aparelho (comodoId, nome, descricao) VALUES (1, 'TV 42', 'TV da sala');
         INSERT INTO public.aparelho (comodoId, nome, descricao) VALUES (1, 'Lampada LED', 'Lampada principal da Sala');
         INSERT INTO public.aparelho (comodoId, nome, descricao) VALUES (2, 'TV 32', 'TV da cozinha');
+
+        CREATE TABLE rotina (
+        rotinaId SERIAL,
+        aparelhoId INTEGER,
+        dataHora DATETIME,
+        acao BOOLEAN,
+        descricao VARCHAR(35),
+        FOREIGN KEY (aparelhoId) REFERENCES aparelho(aparelhoId) ON DELETE CASCADE,
+        PRIMARY KEY (rotinaId)
+        );
+
+        INSERT INTO rotina (aparelhoId, dataHora, acao, descricao) VALUES (2, '2019-12-21 16:24:12', true, 'Apagar a luz no dia 21');
         " > /home/pgScript.sql
 
         echo "\i /home/pgScript.sql" | sudo -i -u postgres psql smart_house
