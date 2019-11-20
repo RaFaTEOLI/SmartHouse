@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <f:view>
+     <h:head>
+        <h:outputStylesheet library="css" name="styles.css"/>
+         <title>
+            <h:outputText value="#{msgs.pageTitle}"/>
+         </title>
+         <link rel="icon" type="image/png" href="../resources/img/home.png" />
+      </h:head>
+     <h:body>
+           <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+           </div>
+           <b:container fluid="true">
+           <b:panel title="Listar Rotinas" look="primary">
+           <h:form>
+              <b:dataTable value="#{ctrRotina.rotinas}" var="rotina">
+              <b:dataTableColumn label="Aparelho" value="#{rotina.aparelhoId}"/>
+              <b:dataTableColumn label="Data Hora" value="#{rotina.dataHora}" />
+              <b:dataTableColumn label="Ação" value="#{rotina.acao}" />
+              <b:dataTableColumn label="Descrição" value="#{rotina.descricao}"/>
+              <b:dataTableColumn label="Alterar">
+                  <b:commandButton look="info" value="Alterar" action="alterar">
+                      <f:setPropertyActionListener value="#{rotina}" target="#{ctrRotina.rotina}" />
+                  </b:commandButton>
+              </b:dataTableColumn>
+              <b:dataTableColumn label="Excluir">
+                  <b:commandButton look="danger" value="Excluir" action="#{ctrRotina.excluir}">
+                      <f:setPropertyActionListener value="#{rotina}" target="#{ctrRotina.rotina}" />
+                  </b:commandButton>
+              </b:dataTableColumn>
+            </b:dataTable>
+               <b:commandButton look="info" value="Incluir" action="incluir"/>
+               <b:commandButton look="primary" value="Voltar" action="inicial"/>
+          </h:form>
+          </b:panel>
+          </b:container>
+        </h:body>
+   </f:view>
+</html>
+

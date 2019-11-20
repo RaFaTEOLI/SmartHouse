@@ -206,7 +206,7 @@ function instalarPostgreSQL() {
         CREATE TABLE rotina (
         rotinaId SERIAL,
         aparelhoId INTEGER,
-        dataHora DATETIME,
+        dataHora TIMESTAMP,
         acao BOOLEAN,
         descricao VARCHAR(35),
         FOREIGN KEY (aparelhoId) REFERENCES aparelho(aparelhoId) ON DELETE CASCADE,

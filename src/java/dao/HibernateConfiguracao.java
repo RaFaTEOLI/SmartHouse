@@ -5,6 +5,7 @@ import model.Casa;
 import model.Morador;
 import model.Pessoa;
 import model.Comodo;
+import model.Rotina;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -31,6 +32,7 @@ public class HibernateConfiguracao {
         configuration.addAnnotatedClass(Morador.class);
         configuration.addAnnotatedClass(Comodo.class);
         configuration.addAnnotatedClass(Aparelho.class);
+        configuration.addAnnotatedClass(Rotina.class);
         
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);

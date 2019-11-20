@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <title>
+            <h:outputText value="#{msgs.pageTitle}"/>
+        </title>
+        <link rel="icon" type="image/png" href="../resources/img/home.png" />
+    </h:head>
+    <h:body>
+       <div id="header">
+            <ui:insert name="header" >
+		  <ui:include src="/template/nav.xhtml" />
+            </ui:insert>
+       </div>
+       <b:container fluid="true">
+       <b:panel title="Mensagem" look="info">
+       <f:view>
+           <b:alert severity="success"><strong>Muito bem!</strong> Você excluiu a rotina <strong>#{ctrRotina.rotina.descricao}</strong> com sucesso.</b:alert>
+           <br></br>
+           <b:link style-class="some-class" look="success" value="Listar Rotinas" href="listaRotinas.xhtml" />
+        </f:view>
+        </b:panel>
+        </b:container>
+    </h:body>
+</html>
