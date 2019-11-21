@@ -51,6 +51,11 @@ public class CtrManterLogin {
         return "logout";
     }
     
+    public String getSessao(HttpSession session) {
+        String sessao = (String) session.getAttribute("usuarioLogado");
+        return sessao;
+    }
+    
     public Login getLogin() {
         return login;
     }

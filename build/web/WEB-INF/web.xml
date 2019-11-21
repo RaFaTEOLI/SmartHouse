@@ -27,6 +27,6 @@
         <param-value>true</param-value>
     </context-param>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>faces/login.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>
