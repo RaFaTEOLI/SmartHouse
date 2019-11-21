@@ -25,8 +25,8 @@
            <h:form>
               <b:dataTable value="#{ctrRotina.rotinas}" var="rotina">
               <b:dataTableColumn label="Aparelho" value="#{rotina.aparelhoId}"/>
-              <b:dataTableColumn label="Data Hora" value="#{rotina.dataHora}" />
-              <b:dataTableColumn label="Ação" value="#{rotina.acao}" />
+              <b:dataTableColumn label="Horário" value="#{rotina.dataHora}" />
+              <b:dataTableColumn label="Ação"><b:label text="#{rotina.acao}" severity="#{rotina.severidade}"/></b:dataTableColumn>
               <b:dataTableColumn label="Descrição" value="#{rotina.descricao}"/>
               <b:dataTableColumn label="Alterar">
                   <b:commandButton look="info" value="Alterar" action="alterar">

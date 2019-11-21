@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -27,7 +28,7 @@ public class Rotina implements Serializable {
     @JoinColumn(name="aparelhoId")
     private Aparelho aparelhoId;
     
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataHora;
     
     private boolean acao;
@@ -77,18 +78,47 @@ public class Rotina implements Serializable {
     public void setDataHora(Date dataHora) {
         this.dataHora = dataHora;
     }
+    
+    public String getSeveridade() {
+        String severidade;
+        if (getAcao().equals("Ligar")) {
+            severidade = "warning";
+        } else {
+            severidade = "danger";
+        }
+        return severidade;
+    }
 
     /**
      * @return the acao
      */
-    public Boolean getAcao() {
+    /*public Boolean getAcao() {
         return acao;
+    }*/
+    
+    public String getAcao() {
+        String sAcao = "";
+        if (acao == true) {
+            sAcao = "Ligar";
+        } else {
+            sAcao = "Desligar";
+        }
+        return sAcao;
     }
 
     /**
      * @param acao the acao to set
      */
-    public void setAcao(Boolean acao) {
+    /*public void setAcao(Boolean acao) {
+        this.acao = acao;
+    }*/
+    
+    public void setAcao(String sAcao) {
+        if ("Ligar".equals(sAcao)) {
+            acao = true;
+        } else if ("Desligar".equals(sAcao)) {
+            acao = false;
+        }
         this.acao = acao;
     }
 

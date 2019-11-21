@@ -18,6 +18,10 @@
               <b:navCommandLink action="comodo"><b:iconAwesome value="door-open" solid="true"/> Cômodos</b:navCommandLink>
               <b:navCommandLink action="rotina"><b:iconAwesome value="clock" solid="true"/> Rotinas</b:navCommandLink>
               <b:navCommandLink action="login"><b:iconAwesome value="key" solid="true"/> Login</b:navCommandLink>
+              <!--<b:navLink href="#"><b:iconAwesome value="user-circle" solid="true"/> Usuário: #{session.getAttribute("usuarioLogado")}</b:navLink>-->
+              <b:dropMenu value="Usuário: #{session.getAttribute('usuarioLogado')}" iconAwesome="user-circle">
+                  <b:navCommandLink value="Logout" action="#{ctrLogin.logout(session)}"></b:navCommandLink>
+              </b:dropMenu>
             </b:navbarLinks>
         </b:navBar>
         </b:form>

@@ -29,15 +29,19 @@ and open the template in the editor.
             <b:form inline="true">
                 <h:panelGrid columns="1" cellpadding="5">
                     <br></br>
-                    <b:inputText label="Nome" value="#{ctrAparelho.aparelho.nome}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o nome"/><br></br>
-                    <b:inputText label="Descrição" value="#{ctrAparelho.aparelho.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descri��o"/><br></br>
-                    <b:selectOneMenu id="comodoAparelho" value="#{ctrAparelho.aparelho.comodoId}" label="Cômodo" labelStyle="width:95px;" style="width:196px;">
-                        <f:converter converterId="comodoConverter" />
-                        <f:selectItems value="#{ctrComodo.comodos}" var="comodoItem" itemLabel="#{comodoItem.nome}" itemValue="#{comodoItem}"/>
+                    <b:dateTimePicker value="#{ctrRotina.rotina.dataHora}" label="Horário" required="true" style="width:196px;" labelStyle="width:99px;" requiredMessage="Por favor preencha o horário!"/><br></br>
+                    <b:selectOneMenu value="#{ctrRotina.rotina.acao}" required="true" label="Ação" style="width:196px;" labelStyle="width:96px;">
+                        <f:selectItem itemLabel="Ligar" itemValue="Ligar" />
+                        <f:selectItem itemLabel="Desligar" itemValue="Desligar" />
                     </b:selectOneMenu><br></br>
+                    <b:inputText label="Descrição" value="#{ctrRotina.rotina.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descrição!"/><br></br>
+                  <b:selectOneMenu id="aparelhoRotina" value="#{ctrRotina.rotina.aparelhoId}" label="Aparelho" labelStyle="width:95px;" style="width:196px;">
+                    <f:converter converterId="aparelhoConverter" />
+                    <f:selectItems value="#{ctrAparelho.aparelhos}" var="aparelhoItem" itemLabel="#{aparelhoItem.nome}" itemValue="#{aparelhoItem}"/>
+                  </b:selectOneMenu><br></br>
                 </h:panelGrid> 
-                <b:commandButton look="info" value="Alterar" action="#{ctrAparelho.alterar}"/>
-                <b:commandButton look="primary" value="Voltar" action="listaAparelhos.xhtml"/>
+                <b:commandButton look="info" value="Alterar" action="#{ctrRotina.alterar}"/>
+                <b:button value="Voltar" href="listaRotinas.xhtml" look="primary"/>
             </b:form>
             </b:panel>
             </b:container>

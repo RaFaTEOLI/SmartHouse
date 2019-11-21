@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>#{msgs.pageTitle}</title>
+        <link rel="icon" type="image/png" href="../resources/img/home.png" />
+    </h:head>
+    <h:body>
+        <b:form>
+        <b:navBar brand="#{msgs.pageTitle}" brandHref="../index.xhtml" inverse="true">
+            <b:navbarLinks>
+              <b:navLink href="faces/pessoa/listaPessoas.xhtml"><b:iconAwesome value="user" solid="true"/> Pessoas</b:navLink>
+              <b:navLink href="faces/casa/listaCasas.xhtml"><b:iconAwesome value="home" solid="true"/> Casas</b:navLink>
+              <b:navLink href="faces/morador/listaMoradores.xhtml"><b:iconAwesome value="bed" solid="true"/> Moradores</b:navLink>
+              <b:navLink href="faces/aparelho/listaAparelhos.xhtml"><b:iconAwesome value="mobile" solid="true"/> Aparelhos</b:navLink>
+              <b:navLink href="faces/comodo/listaComodos.xhtml"><b:iconAwesome value="door-open" solid="true"/> Cômodos</b:navLink>
+              <b:navLink href="faces/rotina/listaRotinas.xhtml"><b:iconAwesome value="clock" solid="true"/> Rotinas</b:navLink>
+              <b:navLink href="faces/login.xhtml"><b:iconAwesome value="key" solid="true"/> Login</b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+        </b:form>
+    </h:body>      
+</html>

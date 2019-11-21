@@ -44,7 +44,7 @@
                 </b:row>
                 <b:row>
                     <b:column span="4" offset="2">
-                        <b:commandButton value="Logar" action="#{ctrLogin.send}" look="primary" style="width:100%">
+                        <b:commandButton value="Logar" type="submit" action="#{ctrLogin.send(session)}" look="primary" style="width:100%">
                             <f:setPropertyActionListener value="#{login}" target= "#{ctrLogin.login}" />
                         </b:commandButton>
                     </b:column>

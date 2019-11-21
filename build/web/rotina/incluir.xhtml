@@ -29,15 +29,15 @@ and open the template in the editor.
             <b:form inline="true">
                 <h:panelGrid columns="1" cellpadding="5">
                   <br></br>
-                  <b:dateTimePicker value="#{rotina.dataHora}" label="Data Hora:" required="true" style="width:196px;" labelStyle="width:99px;"/>
+                  <b:dateTimePicker value="#{rotina.dataHora}" label="Horário" required="true" style="width:196px;" labelStyle="width:99px;" requiredMessage="Por favor preencha o horário!"/>
                   <br></br>
-                  <b:selectOneMenu value="#{rotina.acao}" required="true" label="Ação" style="width:196px;" labelStyle="width:96px;">
+                  <b:selectOneMenu value="#{rotina.acao}" required="true" label="Ação" style="width:196px;" labelStyle="width:96px;" requiredMessage="Por favor selecione uma ação!">
                     <f:selectItem itemLabel="Selecione um item" itemValue="" />
-                    <f:selectItem itemLabel="Ligar" itemValue="true" />
-                    <f:selectItem itemLabel="Desligar" itemValue="false" />
+                    <f:selectItem itemLabel="Ligar" itemValue="Ligar" />
+                    <f:selectItem itemLabel="Desligar" itemValue="Desligar" />
                   </b:selectOneMenu>
                   <br></br>
-                  <b:inputText label="Descrição" value="#{rotina.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descrição"/><br></br>
+                  <b:inputText label="Descrição" value="#{rotina.descricao}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha a descrição!"/><br></br>
                   <b:selectOneMenu id="aparelhoRotina" value="#{rotina.aparelhoId}" label="Aparelho" labelStyle="width:95px;" style="width:196px;">
                     <f:converter converterId="aparelhoConverter" />
                     <f:selectItems value="#{ctrAparelho.aparelhos}" var="aparelhoItem" itemLabel="#{aparelhoItem.nome}" itemValue="#{aparelhoItem}"/>
