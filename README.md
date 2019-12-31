@@ -24,3 +24,22 @@ Rode o script de instalação:
 <strong>./InstallV3.sh</strong>
 
 E pronto só acessar http://localhost:8080/Smart_House_Web/
+
+<h1>How to Install</h1>
+
+Execute this command to clone the project on your server:
+
+<strong>cd /etc/ && git clone https://github.com/RaFaTEOLI/Smart_House_Web</strong>
+
+The command above enters de directory /etc/ e downloads the repository Smart_House_Web
+
+Now enter the folder install, inside the application's directory:
+<strong>cd /etc/Smart_House_Web/install</strong>
+
+Change the installation script's permission:
+<strong>chmod +x InstallV3.sh</strong>
+
+Run the installation script:
+<strong>./InstallV3.sh</strong>
+
+Done! Now access http://localhost:8080/Smart_House_Web/

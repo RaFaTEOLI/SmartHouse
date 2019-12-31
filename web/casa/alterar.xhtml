@@ -17,6 +17,7 @@ and open the template in the editor.
                 <h:outputText value="#{msgs.pageTitle}"/>
              </title>
             <link rel="icon" type="image/png" href="resources/img/home.png" />
+            <link href="../css/chosen.css" rel="stylesheet" />
         </h:head>
         <h:body>
             <div id="header">
@@ -35,7 +36,7 @@ and open the template in the editor.
                      <b:inputText label="#{msgs.cepCasa}" value="#{ctrCasa.casa.cep}" labelStyle="width:100px;" required="true" requiredMessage="Por favor preencha o CEP" validatorMessage="Valor invalido para CEP" mask="99999-999">
                       <f:validateLength  minimum="9"  maximum="9"/>
                     </b:inputText><br></br>
-                    <b:selectOneMenu id="pessoaCasa" value="#{ctrCasa.casa.pessoa}" label="#{msgs.dono}" labelStyle="width:95px;" style="width:196px;">
+                    <b:selectOneMenu id="pessoaCasa" value="#{ctrCasa.casa.pessoa}" label="#{msgs.dono}" labelStyle="width:95px;" style="width:196px;" class="selectespecial">
                         <f:converter converterId="pessoaConverter" />
                         <f:selectItems value="#{ctrPessoa.pessoas}" var="pessoaItem" itemLabel="#{pessoaItem.nome}" itemValue="#{pessoaItem}"/>
                     </b:selectOneMenu><br></br>
@@ -45,6 +46,11 @@ and open the template in the editor.
             </b:form>
             </b:panel>
             </b:container>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../js/chosen.jquery.js"></script>
+        <script> 
+            $('.selectespecial').chosen();
+        </script>
       </h:body>
    </f:view>
 </html>
