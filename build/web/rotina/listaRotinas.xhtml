@@ -28,13 +28,13 @@
               <b:dataTableColumn label="Horário" value="#{rotina.dataHora}" />
               <b:dataTableColumn label="Ação"><b:label text="#{rotina.acao}" severity="#{rotina.severidade}"/></b:dataTableColumn>
               <b:dataTableColumn label="Descrição" value="#{rotina.descricao}"/>
-              <b:dataTableColumn label="Alterar">
-                  <b:commandButton look="info" value="Alterar" action="alterar">
+              <b:dataTableColumn label="Opções">
+                  <b:commandButton look="info" size="sm" action="alterar">
+                      <i class="far fa-edit"></i>
                       <f:setPropertyActionListener value="#{rotina}" target="#{ctrRotina.rotina}" />
                   </b:commandButton>
-              </b:dataTableColumn>
-              <b:dataTableColumn label="Excluir">
-                  <b:commandButton look="danger" value="Excluir" action="#{ctrRotina.excluir}">
+                  <b:commandButton look="danger" onclick="return confirm('Confirma a exclusão?');" size="sm" action="#{ctrRotina.excluir}">
+                      <i class="far fa-trash-alt"></i>
                       <f:setPropertyActionListener value="#{rotina}" target="#{ctrRotina.rotina}" />
                   </b:commandButton>
               </b:dataTableColumn>

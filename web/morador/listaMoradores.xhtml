@@ -31,13 +31,13 @@
                  <b:dataTableColumn label="Casa" value="#{morador.casaId.id} - #{morador.casaId.nome}" />
                  <b:dataTableColumn label="Data Cadastro" value="#{morador.dataCadastro}">
                  </b:dataTableColumn>
-                 <b:dataTableColumn label="Alterar">
-                  <b:commandButton look="info" value="Alterar" action="alterar">
+                 <b:dataTableColumn label="Opções">
+                  <b:commandButton look="info" size="sm" action="alterar">
+                      <i class="far fa-edit"></i>
                       <f:setPropertyActionListener value="#{morador}" target="#{ctrMorador.morador}" />
                   </b:commandButton>
-              </b:dataTableColumn>
-              <b:dataTableColumn label="Excluir">
-                  <b:commandButton look="danger" value="Excluir" action="#{ctrMorador.excluir}">
+                  <b:commandButton look="danger" onclick="return confirm('Confirma a exclusão?');" size="sm" action="#{ctrMorador.excluir}">
+                      <i class="far fa-trash-alt"></i>
                       <f:setPropertyActionListener value="#{morador}" target="#{ctrMorador.morador}" />
                   </b:commandButton>
               </b:dataTableColumn>

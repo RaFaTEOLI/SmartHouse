@@ -30,13 +30,13 @@
               <b:dataTableColumn value="#{casa.cidade}"/>
               <b:dataTableColumn value="#{casa.cep}" />
               <b:dataTableColumn label="Proprietário" value="#{casa.pessoa.nome} #{casa.pessoa.sobrenome}"/>
-              <b:dataTableColumn label="Alterar">
-                  <b:commandButton look="info" value="Alterar" action="alterar">
+              <b:dataTableColumn label="Opções">
+                  <b:commandButton look="info" size="sm" action="alterar">
+                      <i class="far fa-edit"></i>
                       <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
                   </b:commandButton>
-              </b:dataTableColumn>
-              <b:dataTableColumn label="Excluir">
-                  <b:commandButton look="danger" value="Excluir" action="#{ctrCasa.excluir}">
+                  <b:commandButton look="danger" onclick="return confirm('Confirma a exclusão?');" size="sm" action="#{ctrCasa.excluir}">
+                      <i class="far fa-trash-alt"></i>
                       <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
                   </b:commandButton>
               </b:dataTableColumn>

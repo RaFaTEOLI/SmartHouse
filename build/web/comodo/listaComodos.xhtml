@@ -28,13 +28,13 @@
               <b:dataTableColumn value="#{comodo.nome}" />
               <b:dataTableColumn value="#{comodo.andar}" />
               <b:dataTableColumn label="Casa" value="#{comodo.casaId.id} - #{comodo.casaId.nome}"/>
-              <b:dataTableColumn label="Alterar">
-                  <b:commandButton look="info" value="Alterar" action="alterar">
+              <b:dataTableColumn label="Opções">
+                  <b:commandButton look="info" size="sm" action="alterar">
+                      <i class="far fa-edit"></i>
                       <f:setPropertyActionListener value="#{comodo}" target="#{ctrComodo.comodo}" />
                   </b:commandButton>
-              </b:dataTableColumn>
-              <b:dataTableColumn label="Excluir">
-                  <b:commandButton look="danger" value="Excluir" action="#{ctrComodo.excluir}">
+                  <b:commandButton look="danger" onclick="return confirm('Confirma a exclusão?');" size="sm" action="#{ctrComodo.excluir}">
+                      <i class="far fa-trash-alt"></i>
                       <f:setPropertyActionListener value="#{comodo}" target="#{ctrComodo.comodo}" />
                   </b:commandButton>
               </b:dataTableColumn>

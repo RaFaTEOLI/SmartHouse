@@ -28,13 +28,14 @@
               <b:dataTableColumn value="#{pessoa.sobrenome}" />
               <b:dataTableColumn value="#{pessoa.usuario}"/>
               <b:dataTableColumn value="#{pessoa.senha}" />
-              <b:dataTableColumn label="Alterar">
-                  <b:commandButton look="info" value="Alterar" action="alterar">
+              <b:dataTableColumn label="Opções">
+                  <b:commandButton look="info" size="sm" action="alterar">
+                      <i class="far fa-edit"></i>
                       <f:setPropertyActionListener value="#{pessoa}" target="#{ctrPessoa.pessoa}" />
                   </b:commandButton>
-              </b:dataTableColumn>
-              <b:dataTableColumn label="Excluir">
-                  <b:commandButton look="danger" value="Excluir" action="#{ctrPessoa.excluir}">
+                  
+                  <b:commandButton look="danger" onclick="return confirm('Confirma a exclusão?');" size="sm" action="#{ctrPessoa.excluir}">
+                      <i class="far fa-trash-alt"></i>
                       <f:setPropertyActionListener value="#{pessoa}" target="#{ctrPessoa.pessoa}" />
                   </b:commandButton>
               </b:dataTableColumn>
