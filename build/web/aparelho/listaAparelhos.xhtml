@@ -27,8 +27,13 @@
               <b:dataTableColumn label="Id" value="#{aparelho.aparelhoId}" order="asc"/>
               <b:dataTableColumn value="#{aparelho.nome}" />
               <b:dataTableColumn value="#{aparelho.descricao}" />
+              <b:dataTableColumn label="Status"><b:label text="#{aparelho.status}" severity="#{aparelho.status=='Ligado'?'warning':'danger'}"/></b:dataTableColumn>
               <b:dataTableColumn label="Cômodo" value="#{aparelho.comodoId}"/>
               <b:dataTableColumn label="Opções">
+                  <b:commandButton look="success" size="sm" action="vizualizar">
+                      <i class="fas fa-power-off"></i>
+                      <f:setPropertyActionListener value="#{aparelho}" target="#{ctrAparelho.aparelho}" />
+                  </b:commandButton>
                   <b:commandButton look="info" size="sm" action="alterar">
                       <i class="far fa-edit"></i>
                       <f:setPropertyActionListener value="#{aparelho}" target="#{ctrAparelho.aparelho}" />

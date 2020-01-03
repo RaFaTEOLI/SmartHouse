@@ -28,6 +28,7 @@ public class Aparelho implements Serializable {
     
     private String nome;
     private String descricao;
+    private boolean status;
     
     public Aparelho() {
     }
@@ -86,6 +87,25 @@ public class Aparelho implements Serializable {
     */
     public void setComodoId(Comodo comodoId) {
         this.comodoId = comodoId;
+    }
+    
+    public String getStatus() {
+        String sStatus = "";
+        if (status == true) {
+            sStatus = "Ligado";
+        } else {
+            sStatus = "Desligado";
+        }
+        return sStatus;
+    }
+
+    public void setStatus(String sStatus) {
+        if ("Ligado".equals(sStatus)) {
+            status = true;
+        } else if ("Desligado".equals(sStatus)) {
+            status = false;
+        }
+        this.status = status;
     }
     
     @Override

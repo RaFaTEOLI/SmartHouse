@@ -52,6 +52,7 @@ aparelhoId SERIAL,
 comodoId INTEGER,
 nome VARCHAR(35),
 descricao VARCHAR(35),
+status BOOLEAN,
 FOREIGN KEY (comodoId) REFERENCES comodo(comodoId) ON DELETE CASCADE,
 PRIMARY KEY (aparelhoId)
 );
