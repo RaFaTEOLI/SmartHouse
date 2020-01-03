@@ -30,7 +30,8 @@
               <b:dataTableColumn label="Status"><b:label text="#{aparelho.status}" severity="#{aparelho.status=='Ligado'?'warning':'danger'}"/></b:dataTableColumn>
               <b:dataTableColumn label="Cômodo" value="#{aparelho.comodoId}"/>
               <b:dataTableColumn label="Opções">
-                  <b:commandButton look="success" size="sm" action="vizualizar">
+                  <b:commandButton look="success" size="sm" action="#{ctrAparelho.acionar}">
+                      <input type="hidden" name="status" value="#{ctrAparelho.aparelho.status}" />
                       <i class="fas fa-power-off"></i>
                       <f:setPropertyActionListener value="#{aparelho}" target="#{ctrAparelho.aparelho}" />
                   </b:commandButton>

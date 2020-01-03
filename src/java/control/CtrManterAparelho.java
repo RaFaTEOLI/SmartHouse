@@ -61,6 +61,18 @@ public class CtrManterAparelho {
         }
     }
     
+    public String acionar() {
+        try {
+            aparelho.setStatus("Ligado");
+            acessoHibernateAparelho.alterar(aparelho);
+            System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Aparelho | Update | Nome: " + aparelho.getNome() + " | Descrição: " + aparelho.getDescricao() + " | Cômodo: " + aparelho.getComodoId() + " | Status: " + aparelho.getStatus());
+            return "aparelho";
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return "falha";
+        }
+    }
+    
     /**
      * @return the aparelho
      */

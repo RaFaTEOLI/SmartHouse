@@ -156,6 +156,10 @@
     <navigation-rule>
         <from-view-id>/aparelho/listaAparelhos.xhtml</from-view-id>
         <navigation-case>
+            <from-outcome>aparelho</from-outcome>
+            <to-view-id>/aparelho/listaAparelhos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>incluir</from-outcome>
             <to-view-id>/aparelho/incluir.xhtml</to-view-id>
         </navigation-case>
