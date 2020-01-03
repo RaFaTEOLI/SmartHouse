@@ -1,8 +1,11 @@
 package model;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
@@ -68,13 +71,28 @@ public class Rotina implements Serializable {
     /**
      * @return the dataHora
      */
+//    public String getDataHora() {
+//        //SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+//        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//        String dateFormatada = df.format(dataHora);
+//        //return formato.format(dataHora);
+//        return dateFormatada;
+//    }
+    
     public Date getDataHora() {
         return dataHora;
     }
 
-    /**
-     * @param dataHora the dataHora to set
-     */
+//    public void setDataHora(String dataHora) {
+//        Date date1 = null;
+//        try {
+//            date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(dataHora);
+//        } catch (ParseException ex) {
+//            Logger.getLogger(Rotina.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        System.out.println("DATA: " + date1);
+//        this.dataHora = date1;
+//    }
     public void setDataHora(Date dataHora) {
         this.dataHora = dataHora;
     }

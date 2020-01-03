@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Unless directory, remove trailing slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/$ http://localhost/Smart_House_Web/$1 [R=301,L]
+
+# Redirect external .xhtml requests to extensionless url
+RewriteCond %{THE_REQUEST} ^(.+)\.xhtml([#?][^\ ]*)?\ HTTP/
+RewriteRule ^(.+)\.xhtml$ http://localhost/Smart_House_Web/ [R=301,L]
+
+# Resolve .xhtml file for extensionless php urls
+RewriteRule ^([^/.]+)$ $1.xhtml [L]
