@@ -13,6 +13,13 @@
             <h:outputText value="#{msgs.pageTitle}"/>
          </title>
          <link rel="icon" type="image/png" href="../resources/img/home.png" />
+         <style>
+            @media only screen and (max-width: 600px) {
+                .hide-mobile {
+                  display: none;
+                }
+              }
+         </style>
       </h:head>
      <h:body>
            <div id="header">
@@ -27,7 +34,7 @@
               <b:dataTableColumn label="Aparelho" value="#{rotina.aparelhoId}"/>
               <b:dataTableColumn label="Horário" value="#{rotina.dataHora}" />
               <b:dataTableColumn label="Ação"><b:label text="#{rotina.acao}" severity="#{rotina.severidade}"/></b:dataTableColumn>
-              <b:dataTableColumn label="Descrição" value="#{rotina.descricao}"/>
+              <b:dataTableColumn label="Descrição" class="hide-mobile" value="#{rotina.descricao}"/>
               <b:dataTableColumn label="Opções">
                   <b:commandButton look="info" size="sm" action="alterar">
                       <i class="far fa-edit"></i>

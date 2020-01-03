@@ -12,6 +12,13 @@
                 <h:outputText value="#{msgs.pageTitle}"/>
             </title>
             <link rel="icon" type="image/png" href="../resources/img/home.png" />
+            <style>
+            @media only screen and (max-width: 600px) {
+                .hide-mobile {
+                  display: none;
+                }
+              }
+            </style>
         </h:head>
        <h:body>
            <div id="header">
@@ -23,11 +30,11 @@
            <b:panel title="Listar Pessoas" look="primary">
            <h:form>
             <b:dataTable value="#{ctrPessoa.pessoas}" var="pessoa">
-              <b:dataTableColumn value="#{pessoa.id}" order="asc"/>
+              <b:dataTableColumn value="#{pessoa.id}" class="hide-mobile" order="asc"/>
               <b:dataTableColumn value="#{pessoa.nome}" />
               <b:dataTableColumn value="#{pessoa.sobrenome}" />
-              <b:dataTableColumn value="#{pessoa.usuario}"/>
-              <b:dataTableColumn value="#{pessoa.senha}" />
+              <b:dataTableColumn value="#{pessoa.usuario}" class="hide-mobile" />
+              <b:dataTableColumn value="#{pessoa.senha}" class="hide-mobile" />
               <b:dataTableColumn label="Opções">
                   <b:commandButton look="info" size="sm" action="alterar">
                       <i class="far fa-edit"></i>

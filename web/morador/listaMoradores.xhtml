@@ -13,7 +13,13 @@
             <h:outputText value="#{msgs.pageTitle}"/>
          </title>
         <link rel="icon" type="image/png" href="../resources/img/home.png" />
-        
+        <style>
+            @media only screen and (max-width: 600px) {
+                .hide-mobile {
+                  display: none;
+                }
+              }
+        </style>
       </h:head>
      <h:body>
          <div id="header">
@@ -26,10 +32,10 @@
             <b:form inline="true">
          <h:form>
              <b:dataTable value="#{ctrMorador.moradores}" var="morador">
-                 <b:dataTableColumn label="Id" value="#{morador.moradorId}" order="asc"/>
+                 <b:dataTableColumn label="Id" class="hide-mobile" value="#{morador.moradorId}" order="asc"/>
                  <b:dataTableColumn label="Nome" value="#{morador.pessoaId.nome} #{morador.pessoaId.sobrenome}" />
                  <b:dataTableColumn label="Casa" value="#{morador.casaId.id} - #{morador.casaId.nome}" />
-                 <b:dataTableColumn label="Data Cadastro" value="#{morador.dataCadastro}">
+                 <b:dataTableColumn label="Data Cadastro" class="hide-mobile" value="#{morador.dataCadastro}">
                  </b:dataTableColumn>
                  <b:dataTableColumn label="Opções">
                   <b:commandButton look="info" size="sm" action="alterar">

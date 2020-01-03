@@ -13,6 +13,13 @@
             <h:outputText value="#{msgs.pageTitle}"/>
          </title>
         <link rel="icon" type="image/png" href="../resources/img/home.png" />
+        <style>
+            @media only screen and (max-width: 600px) {
+                .hide-mobile {
+                  display: none;
+                }
+              }
+        </style>
       </h:head>
      <h:body>
            <div id="header">
@@ -24,9 +31,9 @@
            <b:panel title="Listar Cômodos" look="primary">
            <h:form>
             <b:dataTable value="#{ctrComodo.comodos}" var="comodo">
-              <b:dataTableColumn label="Id" value="#{comodo.comodoId}" order="asc"/>
+              <b:dataTableColumn label="Id" class="hide-mobile" value="#{comodo.comodoId}" order="asc"/>
               <b:dataTableColumn value="#{comodo.nome}" />
-              <b:dataTableColumn value="#{comodo.andar}" />
+              <b:dataTableColumn value="#{comodo.andar}" class="hide-mobile" />
               <b:dataTableColumn label="Casa" value="#{comodo.casaId.id} - #{comodo.casaId.nome}"/>
               <b:dataTableColumn label="Opções">
                   <b:commandButton look="info" size="sm" action="alterar">

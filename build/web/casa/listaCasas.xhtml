@@ -13,6 +13,13 @@
             <h:outputText value="#{msgs.pageTitle}"/>
          </title>
         <link rel="icon" type="image/png" href="../resources/img/home.png" />
+        <style>
+            @media only screen and (max-width: 600px) {
+                .hide-mobile {
+                  display: none;
+                }
+              }
+        </style>
       </h:head>
      <h:body>
            <div id="header">
@@ -24,11 +31,11 @@
            <b:panel title="Listar Casas" look="primary">
            <h:form>
             <b:dataTable value="#{ctrCasa.casas}" var="casa">
-              <b:dataTableColumn value="#{casa.id}" order="asc"/>
+              <b:dataTableColumn value="#{casa.id}" class="hide-mobile" order="asc"/>
               <b:dataTableColumn value="#{casa.nome}" />
-              <b:dataTableColumn label="Endereço" value="#{casa.endereco}" />
-              <b:dataTableColumn value="#{casa.cidade}"/>
-              <b:dataTableColumn value="#{casa.cep}" />
+              <b:dataTableColumn label="Endereço" class="hide-mobile" value="#{casa.endereco}" />
+              <b:dataTableColumn value="#{casa.cidade}" class="hide-mobile" />
+              <b:dataTableColumn value="#{casa.cep}" class="hide-mobile" />
               <b:dataTableColumn label="Proprietário" value="#{casa.pessoa.nome} #{casa.pessoa.sobrenome}"/>
               <b:dataTableColumn label="Opções">
                   <b:commandButton look="info" size="sm" action="alterar">
