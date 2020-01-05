@@ -65,6 +65,8 @@ public class CtrManterAparelho {
         try {
             if (aparelho.getStatus().equals("Ligado")) {
                 aparelho.setStatus("Desligado");
+            } else {
+                aparelho.setStatus("Ligado");
             }
             acessoHibernateAparelho.alterar(aparelho);
             System.out.println("LOG SYSTEM | " + data.getCurrentTime() + " | Smart House | Aparelho | Update | Nome: " + aparelho.getNome() + " | Descrição: " + aparelho.getDescricao() + " | Cômodo: " + aparelho.getComodoId() + " | Status: " + aparelho.getStatus());
