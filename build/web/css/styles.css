@@ -7,3 +7,25 @@ and open the template in the editor.
     Created on : 03/01/2020, 15:00:41
     Author     : Rafael Tessarolo
 */
+
+.top-options {
+    float: right;
+}
+
+@media only screen and (max-width: 600px) {
+    .hide-mobile {
+        display: none;
+    }
+}
+              
+.house {
+    margin-left: 28%;
+    margin-right: 28%;
+}
+              
+ @media only screen and (max-width: 350px) {
+    .house {
+        margin-left: 17%;
+        margin-right: 17%;
+    }
+}

@@ -8,17 +8,13 @@
 
     <f:view>
      <h:head>
-        <h:outputStylesheet library="css" name="styles.css"/>
+        <link type="text/css" rel="stylesheet" href="../css/styles.css" />
          <title>
             <h:outputText value="#{msgs.pageTitle}"/>
          </title>
         <link rel="icon" type="image/png" href="../resources/img/home.png" />
         <style>
-            @media only screen and (max-width: 600px) {
-                .hide-mobile {
-                  display: none;
-                }
-              }
+            
         </style>
       </h:head>
      <h:body>
@@ -30,26 +26,44 @@
            <b:container fluid="true">
            <b:panel title="Listar Casas" look="primary">
            <h:form>
-            <b:dataTable value="#{ctrCasa.casas}" var="casa">
-              <b:dataTableColumn value="#{casa.id}" class="hide-mobile" order="asc"/>
-              <b:dataTableColumn value="#{casa.nome}" />
-              <b:dataTableColumn label="Endereço" class="hide-mobile" value="#{casa.endereco}" />
-              <b:dataTableColumn value="#{casa.cidade}" class="hide-mobile" />
-              <b:dataTableColumn value="#{casa.cep}" class="hide-mobile" />
-              <b:dataTableColumn label="Proprietário" value="#{casa.pessoa.nome} #{casa.pessoa.sobrenome}"/>
-              <b:dataTableColumn label="Opções">
-                  <b:commandButton look="info" size="sm" action="alterar">
-                      <i class="far fa-edit"></i>
-                      <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
-                  </b:commandButton>
-                  <b:commandButton look="danger" onclick="return confirm('Confirma a exclusão?');" size="sm" action="#{ctrCasa.excluir}">
-                      <i class="far fa-trash-alt"></i>
-                      <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
-                  </b:commandButton>
-              </b:dataTableColumn>
-            </b:dataTable>
-               <b:commandButton look="info" value="Incluir" action="incluir"/>
-               <b:commandButton look="primary" value="Voltar" action="inicial"/>
+               <b:commandButton look="primary" action="inicial" class="top-options">
+                   <i class="fas fa-undo"></i>
+               </b:commandButton>
+               <b:commandButton look="success" action="incluir" class="top-options">
+                   <i class="fas fa-plus-square"></i>
+               </b:commandButton>
+               <br></br>
+               <br></br>
+           <b:row>
+                <!-- Solução 2 -->
+                <ui:repeat value="#{ctrCasa.casas}" var="casa">
+                    <b:column col-sm="6" col-md="3">
+                        <b:thumbnail style="background-color: #55e0d2; box-shadow: 2px 2px 15px 0px #000000; border-radius: 14px;">
+                        <i class="fas fa-home fa-8x house"></i>
+                        <f:facet name="caption">
+                          <h3>#{casa.nome}</h3>
+                          <p>Cidade: <strong>#{casa.cidade}</strong>
+                              <br></br>
+                              Proprietário: <strong>#{casa.pessoa.nome} #{casa.pessoa.sobrenome}
+                              </strong>
+                          </p>
+                          <b:commandButton look="primary" size="sm" action="entrar">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
+                          </b:commandButton>
+                          <b:commandButton look="info" size="sm" action="alterar">
+                                <i class="far fa-edit"></i>
+                                <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
+                          </b:commandButton>
+                          <b:commandButton look="danger" onclick="return confirm('Confirma a exclusão?');" size="sm" action="#{ctrCasa.excluir}">
+                                <i class="far fa-trash-alt"></i>
+                                <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
+                          </b:commandButton>
+                        </f:facet>
+                        </b:thumbnail>
+                    </b:column>
+                </ui:repeat>
+           </b:row>
           </h:form>
           </b:panel>
           </b:container>
