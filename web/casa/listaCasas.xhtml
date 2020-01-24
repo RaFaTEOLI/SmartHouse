@@ -35,11 +35,10 @@
                <br></br>
                <br></br>
            <b:row>
-                <!-- Solução 2 -->
                 <ui:repeat value="#{ctrCasa.casas}" var="casa">
                     <b:column col-sm="6" col-md="3">
-                        <b:thumbnail style="background: linear-gradient(90deg, rgba(37,130,189,1) 41%, rgba(0,168,255,1) 68%); color: white; box-shadow: 2px 2px 15px 0px #000000; border-radius: 14px;">
-                        <i class="fas fa-home fa-8x house"></i>
+                        <b:thumbnail style="background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4); color: white; box-shadow: 1px 1px 3px 0px #000000; border-radius: 14px;">
+                        <i class="fas fa-home fa-8x" style="display: flex; justify-content: center"></i>
                         <f:facet name="caption">
                           <div class="house-data">
                           <h3>#{casa.nome}</h3>
@@ -49,10 +48,6 @@
                               </strong>
                           </p>
                           </div>
-                          <b:commandButton look="primary" size="sm" action="entrar">
-                                <i class="fas fa-sign-in-alt"></i>
-                                <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />
-                          </b:commandButton>
                           <b:commandButton look="info" size="sm" action="alterar">
                                 <i class="far fa-edit"></i>
                                 <f:setPropertyActionListener value="#{casa}" target="#{ctrCasa.casa}" />

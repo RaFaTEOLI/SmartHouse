@@ -8,6 +8,12 @@ and open the template in the editor.
     Author     : Rafael Tessarolo
 */
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .top-options {
     float: right;
 }
@@ -16,11 +22,6 @@ and open the template in the editor.
     .hide-mobile {
         display: none;
     }
-}
-              
-.house {
-    margin-left: 28%;
-    margin-right: 28%;
 }
               
  @media only screen and (max-width: 350px) {
