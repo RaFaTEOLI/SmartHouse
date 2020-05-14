@@ -10,12 +10,12 @@ Esse é um trabalho da faculdade, nós criamos um site usando JSF, para gerencia
 
 Rode esse comando para clonar o projeto no seu servidor: 
 
-<strong>cd /etc/ && git clone https://github.com/RaFaTEOLI/Smart_House_Web</strong>
+<strong>cd /etc/ && git clone https://github.com/RaFaTEOLI/smarthouse-javaweb</strong>
 
-Esse comando acima ele acessa o diretório /etc/ e baixa o repositório Smart_House_Web
+Esse comando acima ele acessa o diretório /etc/ e baixa o repositório smarthouse-javaweb
 
 Agora acesse a pasta install dentro do diretório da aplicação:
-<strong>cd /etc/Smart_House_Web/install</strong>
+<strong>cd /etc/smarthouse-javaweb/install</strong>
 
 Dê permissão ao script de instalação:
 <strong>chmod +x InstallV3.sh</strong>
@@ -23,18 +23,18 @@ Dê permissão ao script de instalação:
 Rode o script de instalação:
 <strong>./InstallV3.sh</strong>
 
-E pronto só acessar http://localhost:8080/Smart_House_Web/
+E pronto só acessar http://localhost:8080/smarthouse-javaweb/
 
 <h1>How to Install</h1>
 
 Execute this command to clone the project on your server:
 
-<strong>cd /etc/ && git clone https://github.com/RaFaTEOLI/Smart_House_Web</strong>
+<strong>cd /etc/ && git clone https://github.com/RaFaTEOLI/smarthouse-javaweb</strong>
 
-The command above enters de directory /etc/ e downloads the repository Smart_House_Web
+The command above enters de directory /etc/ e downloads the repository smarthouse-javaweb
 
 Now enter the folder install, inside the application's directory:
-<strong>cd /etc/Smart_House_Web/install</strong>
+<strong>cd /etc/smarthouse-javaweb/install</strong>
 
 Change the installation script's permission:
 <strong>chmod +x InstallV3.sh</strong>
@@ -42,4 +42,4 @@ Change the installation script's permission:
 Run the installation script:
 <strong>./InstallV3.sh</strong>
 
-Done! Now access http://localhost:8080/Smart_House_Web/
+Done! Now access http://localhost:8080/smarthouse-javaweb/
